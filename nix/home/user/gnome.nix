@@ -13,7 +13,7 @@
     ".config/goa-1.0"
   ];
 
-  dconf.settings = {
+  dconf.settings = lib.mkIf config.muehml.guiApps {
     "org/gnome/desktop/input-sources" = {
       sources = [
         (lib.hm.gvariant.mkTuple [

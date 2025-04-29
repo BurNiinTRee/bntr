@@ -1,9 +1,11 @@
 keys:
   - &larstop2 age1xu8xmg3g7p0rcy769q4c4z0gymxgsmngs0n3fg6y089ms626qsrsd0n6q6
   - &muehml age18xluezp2cypkscd80w4hv0vzgeyqu2uvqdxn3ta4uyphvvad8dqqrrvmnp
+  - &work-laptop age14w9k75y7vxepqcpup3skj5w676mgcqk0y2p7gwgmk94w5d542pvqcu0yat
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
     - age:
       - *larstop2
       - *muehml
+      - *work-laptop
