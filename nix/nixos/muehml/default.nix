@@ -15,7 +15,6 @@
     ./nextcloud-server.nix
     ./paperless.nix
     ./vaultwarden.nix
-    ./pg-upgrade.nix
   ];
 
   services.journald.extraConfig = "SystemMaxUse=50M";
@@ -151,6 +150,10 @@
     80
     443
   ];
+
+  services.postgresql = {
+    package = pkgs.postgresql;
+  };
 
   # https://nixos.wiki/wiki/Install_NixOS_on_Hetzner_Online
   networking = {
