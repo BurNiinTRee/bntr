@@ -9,7 +9,7 @@ in
 {
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
     autoUpdateApps.enable = true;
     hostName = domain;
     https = true;
