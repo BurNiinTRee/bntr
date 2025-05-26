@@ -152,7 +152,7 @@
   ];
 
   services.postgresql = {
-    package = pkgs.postgresql;
+    package = pkgs.postgresql_16;
   };
 
   # https://nixos.wiki/wiki/Install_NixOS_on_Hetzner_Online
