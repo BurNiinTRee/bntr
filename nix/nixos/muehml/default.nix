@@ -15,6 +15,7 @@
     ./nextcloud-server.nix
     ./paperless.nix
     ./vaultwarden.nix
+    ./pg-upgrade.nix
   ];
 
   services.journald.extraConfig = "SystemMaxUse=50M";
