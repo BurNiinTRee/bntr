@@ -18,6 +18,8 @@ in
     };
   };
 
+  impermanence.files = ["/var/lib/navidrome/navidrome.db"];
+
   environment.systemPackages = [ pkgs.cifs-utils ];
   fileSystems."/var/lib/navidrome" = {
     device = "//u412961-sub4.your-storagebox.de/u412961-sub4";
