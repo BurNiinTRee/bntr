@@ -18,7 +18,11 @@ in
     };
   };
 
-  impermanence.files = ["/var/lib/navidrome/navidrome.db"];
+  impermanence.files = [
+    "/var/lib/navidrome/navidrome.db"
+    "/var/lib/navidrome/navidrome.db-shm"
+    "/var/lib/navidrome/navidrome.db-wal"
+  ];
 
   environment.systemPackages = [ pkgs.cifs-utils ];
   fileSystems."/var/lib/navidrome" = {
