@@ -12,6 +12,7 @@
     ./impermanence.nix
     ./grafana.nix
     ./mail-server.nix
+    ./navidrome.nix
     ./nextcloud-server.nix
     ./paperless.nix
     ./vaultwarden.nix
