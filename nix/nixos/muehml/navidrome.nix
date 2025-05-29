@@ -7,6 +7,7 @@ in
     enable = true;
     settings = {
       BaseUrl = "https://${domain}/";
+      MusicFolder = "/mnt/navidrome/music";
     };
   };
 
@@ -18,14 +19,12 @@ in
     };
   };
 
-  impermanence.files = [
-    "/var/lib/navidrome/navidrome.db"
-    "/var/lib/navidrome/navidrome.db-shm"
-    "/var/lib/navidrome/navidrome.db-wal"
+  impermanence.directories = [
+    "/var/lib/navidrome"
   ];
 
   environment.systemPackages = [ pkgs.cifs-utils ];
-  fileSystems."/var/lib/navidrome" = {
+  fileSystems."/mnt/navidrome" = {
     device = "//u412961-sub4.your-storagebox.de/u412961-sub4";
     fsType = "cifs";
     options =
