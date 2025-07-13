@@ -43,7 +43,7 @@
         name = "Lars Mühmel";
         email = "lars@muehml.eu";
       };
-      git.push-bookmark-prefix = "BurNiinTRee/push-";
+      templates.git_push_bookmark = "\"BurNiinTRee/push-\" ++ change_id.short()";
       aliases = {
         up = [
           "util"
