@@ -36,6 +36,10 @@
       url = "file+file:///dev/null";
       flake = false;
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs = {
+      nixpkgs.follows = "nixpkgs";
+    };
     fenix.url = "github:nix-community/fenix";
   };
 

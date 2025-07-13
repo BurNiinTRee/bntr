@@ -28,7 +28,7 @@
       ui = {
         default-command = "log";
         pager = ":builtin";
-        diff.tool = [
+        diff-formatter = [
           "delta"
           "--paging"
           "never"
