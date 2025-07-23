@@ -41,6 +41,11 @@
       nixpkgs.follows = "nixpkgs";
     };
     fenix.url = "github:nix-community/fenix";
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { flake-parts, ... }@inputs: flake-parts.lib.mkFlake { inherit inputs; } ./nix;

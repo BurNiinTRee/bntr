@@ -7,9 +7,11 @@
 {
   programs.firefox = lib.mkIf config.muehml.guiApps {
     enable = true;
-    package = pkgs.librewolf.override {
-      cfg.speechSynthesisSupport = true;
-    };
+    package = config.lib.nixGL.wrap (
+      pkgs.librewolf.override {
+        cfg.speechSynthesisSupport = true;
+      }
+    );
   };
   home.file.".mozilla/firefox/profiles.ini".text = ''
     [Profile0]

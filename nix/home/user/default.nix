@@ -3,6 +3,7 @@
   pkgs,
   lib,
   flakeInputs,
+  flakeInputs',
   selfLocation,
   ...
 }:
@@ -161,5 +162,11 @@ in
     };
 
     programs.home-manager.enable = lib.mkIf (!ni) true;
+
+    nixGL = {
+      packages = lib.mkIf (!ni) flakeInputs'.nixgl.packages;
+      defaultWrapper = "mesa";
+      installScripts = [ "mesa" ];
+    };
   };
 }
