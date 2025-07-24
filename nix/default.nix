@@ -5,6 +5,7 @@
 }:
 let
   inherit (inputs)
+    nixpkgs
     treefmt-nix
     ;
 in
@@ -38,6 +39,7 @@ in
         muehml = self.nixosConfigurations.muehml.config.system.build.toplevel;
         # larstop2 = self.nixosConfigurations.larstop2.config.system.build.toplevel;
         homeManager = self.homeConfigurations.user.config.home.activationPackage;
+        devenv = self.devShells.x86_64-linux.default;
       };
 
       treefmt = {
@@ -48,6 +50,11 @@ in
           asmfmt.enable = true;
           shellcheck.enable = true;
         };
+      };
+
+      _module.args.pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
     };
 }

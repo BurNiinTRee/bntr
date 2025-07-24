@@ -20,3 +20,4 @@ jobs:
         run: |
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.muehml)
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.homeManager)
+          nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.devenv)

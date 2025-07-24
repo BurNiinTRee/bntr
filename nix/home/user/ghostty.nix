@@ -1,7 +1,13 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs.ghostty = lib.mkIf config.muehml.guiApps {
     enable = true;
+    package = config.lib.nixGL.wrap pkgs.ghostty;
     settings = {
       command = [ "nu" ];
       gtk-adwaita = true;
