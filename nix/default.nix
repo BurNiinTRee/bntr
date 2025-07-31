@@ -10,6 +10,7 @@ let
     ;
 in
 {
+  debug = true;
   systems = [ "x86_64-linux" ];
   _module.args.selfLocation = "/home/user/bntr";
 

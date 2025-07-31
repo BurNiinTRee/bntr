@@ -1,0 +1,15 @@
+[package]
+name = "decl-shadow-test"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = { version = "0.8.4", default-features = false, features = ["tokio", "http1"] }
+futures-util = { version = "0.3.31", default-features = false }
+html5ever = { version = "0.35.0", default-features = false }
+markup5ever = { version = "0.35.0", default-features = false }
+markup5ever_rcdom = { version = "0.35.0", default-features = false }
+tendril = { version = "0.4.3", default-features = false }
+tokio = { version = "1.47.1", features = ["macros", "net", "rt"] }
+tower = { version = "0.5.2", default-features = false, features = ["util"] }
+tower-http = { version = "0.6.6", default-features = false, features = ["fs"] }
