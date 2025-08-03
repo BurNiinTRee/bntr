@@ -147,6 +147,11 @@
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
     recommendedProxySettings = true;
+    virtualHosts."forward.muehml.eu" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/".proxyPass = "http://localhost:54321";
+    };
   };
   networking.firewall.allowedTCPPorts = [
     80
