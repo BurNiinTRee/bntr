@@ -1,12 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.svg">
-<script src="/facet.js"></script>
+
+<script defer type="module">
+import facet from "/facet.js";
+facet.discoverDeclarativeComponents(document);
+</script>
+<style>
+body {
+  margin: 0;
+}
+html {
+  font-family: sans-serif;
+  height: 100vh;
+}
+</style>
+
 <template component="my-layout">
   <style>
     main {
       margin-inline: auto;
       width: min(90%, 800px);
+      padding-block-end: 0.5em;
     }
   </style>
   <nav-header></nav-header>
@@ -32,12 +49,18 @@
   </style>
   <nav><ul>
     <li><a href="/">Home
-    <li><a href="/components.html">Components
+    <li><a href="/layout.html">Layout
+    <li><a href="/empty.html">Empty
   </ul></nav>
 </template>
 
-<style>
-body {
-  margin: 0;
-}
-</style>
+<template component="press-counter">
+  Pressed
+  <button>
+    +
+    <script on="click">
+      const span = root.querySelector("#counter");
+      span.innerText = +span.innerText + 1;
+    </script>
+  </button> <span id="counter">0</span> times.
+</template>

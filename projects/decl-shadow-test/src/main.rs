@@ -42,9 +42,7 @@ async fn main() {
     local_set
         .run_until(async move {
             axum::serve(
-                tokio::net::TcpListener::bind("127.0.0.1:8080")
-                    .await
-                    .unwrap(),
+                tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap(),
                 app,
             )
             .await
@@ -66,14 +64,14 @@ async fn rewriter(response: Response) -> Response {
 
         let mut parser =
             html5ever::parse_document(RcDom::default(), Default::default()).from_utf8();
+        let components_text = std::fs::read("site/_.html").unwrap();
+        parser.process(components_text.to_tendril());
         stream
             .for_each(|c| {
                 parser.process(c.unwrap().to_tendril());
                 ready(())
             })
             .await;
-        let components_text = std::fs::read("site/components.html").unwrap();
-        parser.process(components_text.to_tendril());
         let dom = parser.finish();
 
         let dom = inline_facet_components(dom);

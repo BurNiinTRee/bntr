@@ -1,16 +1,23 @@
-<!DOCTYPE html>
 <title>Declarative Shadowroot Test</title>
 <my-layout>
 <h1>Test page</h1>
+
 <p>
 Here I am playing around with an approach for generating (mostly static) pages
-via <a href="https://github.com/kgscialdone/facet">Facet Web Components</a> that nontheless also work without JavaScript.
-This is achieved by a middleware in the server that finds all Facet component definitions
-in the returned HTML and inserts them as a declarative shadow dom into the usages.
-While doing so, it strips out any <code>&lt;script&gt;</code> elements, and inserts transitively used components.
-If and when the JavaScript loads, all the declarative shadow doms get replaced by the Facet component,
-restoring interactivity.
+via <a href="https://github.com/kgscialdone/facet">Facet Web Components</a> that
+nontheless also work without JavaScript.
+This is achieved by a middleware in the server that finds all Facet component
+definitions in the returned HTML and inserts them as a declarative shadow dom
+into the usages.
+While doing so, it strips out any <code>&lt;script&gt;</code> elements, and
+inserts transitively used components.
+If and when the JavaScript loads, all the declarative shadow doms get replaced
+by the Facet component, restoring interactivity.
+
 <p>
-To prevent having to include the component definitions into every page, the server also appends
-a common HTML file into before processing. This leads to absolutely awful HTML, that is still parsed correctly.
-</my-layout>
+To prevent having to include the component definitions into every page, the
+server also appends a common HTML file into before processing. This leads to
+absolutely awful HTML, that is still parsed correctly.
+
+<p>
+<press-counter></press-counter>
