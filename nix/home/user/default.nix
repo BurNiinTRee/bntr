@@ -148,6 +148,8 @@ in
           max-jobs = 6;
           flake-registry = emptyFlakeRegistry;
           netrc-file = "${config.home.homeDirectory}/.config/nix/netrc";
+          extra-substituters = [ "https://attic.muehml.eu/ci" ];
+          extra-trusted-public-keys = [ "ci:pGN5GUIYtBiawlMyFIapGrGbUT8N1misYuS6iW90neU=" ];
         };
     };
     persist.files = [

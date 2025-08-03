@@ -2,13 +2,14 @@
 let
   devenvRootFileContent = builtins.readFile inputs.devenv-root.outPath;
   devenvRoot = lib.mkIf (devenvRootFileContent != "") devenvRootFileContent;
+
 in
 {
   imports = [ inputs.devenv.flakeModule ];
   perSystem =
-    { ... }:
-    {
-      devenv.shells = {
+    { config, ... }:
+    let
+      devenvs = {
         default =
           { pkgs, ... }:
           {
@@ -32,5 +33,23 @@ in
             packages = [ ];
           };
       };
+      isDevenvFile = p: (builtins.baseNameOf p) == "devenv.nix";
+      files = (lib.filesystem.listFilesRecursive ../../projects);
+      extraProjectEnvFiles = builtins.filter isDevenvFile files;
+      extraProjectDevenv =
+        p:
+        let
+          name = builtins.baseNameOf (builtins.dirOf p);
+          value = {
+            imports = [ (import p devenvs) ];
+          };
+        in
+        {
+          inherit name value;
+        };
+      extraProjectDevenvs = builtins.listToAttrs (builtins.map extraProjectDevenv extraProjectEnvFiles);
+    in
+    {
+      devenv.shells = devenvs // extraProjectDevenvs;
     };
 }
