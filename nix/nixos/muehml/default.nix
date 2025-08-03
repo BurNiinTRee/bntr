@@ -98,6 +98,7 @@
 
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = false;
+  services.openssh.settings.GatewayPorts = "clientspecified";
   programs.mosh.enable = true;
 
   users.users.root.openssh.authorizedKeys.keys = [
