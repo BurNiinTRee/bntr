@@ -12,7 +12,7 @@ mod rcdom;
 
 pub(crate) use facet::FacetInliner;
 
-pub(crate) async fn rewrite_stream<S, R>(stream: S, mut rewriter: R) -> Result<Vec<u8>, R::Err>
+pub(crate) async fn rewrite_stream<S, R>(stream: S, rewriter: &mut R) -> Result<Vec<u8>, R::Err>
 where
     S: TryStreamExt<Ok = Bytes>,
     S::Error: std::fmt::Debug,
