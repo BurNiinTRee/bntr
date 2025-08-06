@@ -1,52 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/style.css">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.svg">
 
 <script defer type="module">
-import facet from "/facet.js";
-facet.discoverDeclarativeComponents(document);
+  import facet from "/facet.js";
+  facet.discoverDeclarativeComponents(document);
 </script>
-<style>
-body {
-  margin: 0;
-}
-html {
-  font-family: sans-serif;
-  height: 100vh;
-}
-</style>
+
+<template mixin="style" global>
+  <style>
+    /*-------------------------------------------------------------*\
+    |* By the time we get here, this stylesheet is already loaded. *|
+    \*-------------------------------------------------------------*/
+    @import "/style.css";
+  </style>
+</template>
 
 <template component="my-layout">
-  <style>
-    main {
-      margin-inline: auto;
-      width: min(90%, 800px);
-      padding-block-end: 0.5em;
-    }
-  </style>
   <nav-header></nav-header>
   <main><slot><h1>Empty page</h1></slot></main>
 </template>
 
 <template component="nav-header">
-  <style>
-    nav {
-      background-color: rgba(184, 144, 242, 1);
-      padding-block: 0.5em;
-    }
-    ul {
-      display: flex;
-      margin: 0;
-      list-style-type: none;
-      gap: 2em;
-    }
-    a {
-      text-decoration: none;
-      color: black;
-    }
-  </style>
   <nav><ul>
     <li><a href="/">Home
     <li><a href="/layout.html">Layout

@@ -11,7 +11,7 @@ definitions in the returned HTML and inserts them as a declarative shadow dom
 into the usages.
 While doing so, it strips out any <code>&lt;script&gt;</code> elements, and
 inserts transitively used components.
-If and when the JavaScript loads, all the declarative shadow doms get replaced
+If and when the JavaScript loads, all the declarative shadow DOMs get replaced
 by the Facet component, restoring interactivity.
 
 <p>
@@ -20,4 +20,21 @@ server also appends a common HTML file into before processing. This leads to
 absolutely awful HTML, that is still parsed correctly.
 
 <p>
+The following is an example of a simple interactive custom element.
 <press-counter></press-counter>
+<p>
+It's implementation looks something like this:
+<pre><code>
+&lt;template component="press-counter"&gt;
+  Pressed
+  &lt;button&gt;
+    +
+    &lt;script on="click"&gt;
+      const span = root.querySelector("#counter");
+      span.innerText = +span.innerText + 1;
+    &lt;/script&gt;
+  &lt;/button&gt; &lt;span id="counter"&gt;0&lt;/span&gt; times.
+&lt;/template&gt;
+</code></pre>
+<p>
+It can be invoked like any other HTML element, i.e. <code>&lt;press-counter&gt;&lt;/press-counter&gt;</code>.

@@ -22,10 +22,16 @@ impl DomRewriter for FacetInliner {
 
 pub(crate) fn inline_facet_components(dom: &RcDom) -> &RcDom {
     let mut component_definitions = HashMap::new();
-    find_components_definitions(&dom.document, &mut component_definitions);
+    let mut global_mixins = Vec::new();
+    find_components_definitions(
+        &dom.document,
+        &mut component_definitions,
+        &mut global_mixins,
+    );
     let component_definitions = component_definitions;
+    let global_mixins = global_mixins;
 
-    fill_usages(dom.document.clone(), &component_definitions);
+    fill_usages(dom.document.clone(), &component_definitions, &global_mixins);
 
     dom
 }
@@ -33,12 +39,13 @@ pub(crate) fn inline_facet_components(dom: &RcDom) -> &RcDom {
 fn fill_usages(
     node: Rc<Node>,
     component_definitions: &HashMap<StrTendril, (StrTendril, Rc<Node>)>,
+    global_mixins: &Vec<Handle>,
 ) {
     for (name, definition) in component_definitions {
         let mut usages = Vec::new();
         find_components_uses(node.clone(), name.clone(), &mut usages);
         for usage in usages {
-            fill_usages(definition.1.clone(), component_definitions);
+            fill_usages(definition.1.clone(), component_definitions, global_mixins);
             let decl_shadow_dom = Node::new(NodeData::Element {
                 name: QualName::new(None, ns!(), local_name!("template")),
                 attrs: RefCell::new(vec![Attribute {
@@ -48,7 +55,10 @@ fn fill_usages(
                 template_contents: RefCell::new(Some(definition.1.clone())),
                 mathml_annotation_xml_integration_point: false,
             });
-            usage.children.borrow_mut().push(decl_shadow_dom)
+            for mixin in global_mixins {
+                decl_shadow_dom.children.borrow_mut().push(mixin.clone());
+            }
+            usage.children.borrow_mut().push(decl_shadow_dom);
         }
     }
 }
@@ -56,6 +66,7 @@ fn fill_usages(
 pub(crate) fn find_components_definitions(
     node: &Node,
     definitions: &mut HashMap<StrTendril, (StrTendril, Handle)>,
+    global_mixins: &mut Vec<Handle>,
 ) {
     match &node.data {
         NodeData::Element {
@@ -67,21 +78,38 @@ pub(crate) fn find_components_definitions(
             // don't recurse into templates
             if let Some(component_attr) = attrs
                 .borrow()
-                .deref()
                 .iter()
                 .find(|&attr| &attr.name.local == "component")
                 && let Some(contents) = template_contents.borrow().clone()
             {
-                let clean_contents = remove_script_elements(Rc::clone(&contents));
+                let clean_contents = remove_script_elements(contents.clone());
                 let component_name = component_attr.value.clone();
+                let shadowroot_mode = attrs
+                    .borrow()
+                    .iter()
+                    .find(|&attr| &attr.name.local == "shadow")
+                    .map(|attr| attr.value.clone())
+                    .unwrap_or_else(|| "closed".parse().unwrap());
                 definitions
                     .entry(component_name)
-                    .or_insert(("closed".parse().unwrap(), clean_contents));
+                    .or_insert((shadowroot_mode.clone(), clean_contents));
+            } else if let Some(_) = attrs
+                .borrow()
+                .iter()
+                .find(|&attr| &attr.name.local == "mixin")
+                && let Some(_) = attrs
+                    .borrow()
+                    .iter()
+                    .find(|&attr| &attr.name.local == "global")
+                && let Some(contents) = template_contents.borrow().clone()
+            {
+                let clean_contents = remove_script_elements(Rc::clone(&contents));
+                global_mixins.push(clean_contents)
             }
         }
         _ => {
             for child in node.children.borrow().deref() {
-                find_components_definitions(child, definitions);
+                find_components_definitions(child, definitions, global_mixins);
             }
         }
     };
