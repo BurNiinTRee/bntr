@@ -1,8 +1,9 @@
-use dom_rewriter::FacetInliner;
-use tokio::{select, task::LocalSet};
-
 mod dom_rewriter;
 mod server;
+mod ssg;
+
+use dom_rewriter::{Cachebuster, FacetInliner};
+use tokio::{select, task::LocalSet};
 
 #[tokio::main(flavor = "current_thread")]
 async fn main() {
@@ -20,7 +21,8 @@ async fn main() {
                     }
                 }
                 let local_set = LocalSet::new();
-                let (http_dom_rewriter, local_task) = server::HttpDomRewriter::new(FacetInliner);
+                let (http_dom_rewriter, local_task) =
+                    server::HttpDomRewriter::new((FacetInliner, Cachebuster));
 
                 local_set.spawn_local(local_task);
 
@@ -49,5 +51,3 @@ async fn main() {
         }
     }
 }
-
-mod ssg;

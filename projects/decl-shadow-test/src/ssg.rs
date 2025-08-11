@@ -9,7 +9,7 @@ use std::{
 use axum::body::Bytes;
 use futures_util::stream::once;
 
-use crate::{FacetInliner, dom_rewriter::rewrite_stream};
+use crate::{Cachebuster, FacetInliner, dom_rewriter::rewrite_stream};
 
 #[derive(Clone)]
 pub(crate) struct Settings {
@@ -52,7 +52,7 @@ async fn copy_rewrite(settings: Settings, html_prefix: &[u8]) {
             file.read_to_end(&mut contents).unwrap();
             let out = rewrite_stream(
                 once(ready(Result::<_, Infallible>::Ok(Bytes::from(contents)))),
-                &mut FacetInliner,
+                &mut (Cachebuster, FacetInliner),
             )
             .await
             .unwrap();

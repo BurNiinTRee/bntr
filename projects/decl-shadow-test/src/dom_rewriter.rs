@@ -7,9 +7,11 @@ use std::future::ready;
 
 use rcdom::{RcDom, SerializableHandle};
 
+mod cachebuster;
 mod facet;
 mod rcdom;
 
+pub(crate) use cachebuster::Cachebuster;
 pub(crate) use facet::FacetInliner;
 
 pub(crate) async fn rewrite_stream<S, R>(stream: S, rewriter: &mut R) -> Result<Vec<u8>, R::Err>

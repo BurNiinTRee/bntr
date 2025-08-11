@@ -4,7 +4,13 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.svg">
-
+<script type="importmap">
+{
+  "imports": {
+    "/facet.js": "/facet.js"
+  }
+}
+</script>
 <script defer type="module">
   import facet from "/facet.js";
   facet.discoverDeclarativeComponents(document);
@@ -15,7 +21,11 @@
     /*-------------------------------------------------------------*\
     |* By the time we get here, this stylesheet is already loaded. *|
     \*-------------------------------------------------------------*/
-    @import "/style.css";
+    @import
+    /* begin assetreplace out/style.css  */
+    "/style.css"
+    /* end assetreplace */
+    layer;
   </style>
 </template>
 
