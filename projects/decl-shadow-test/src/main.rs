@@ -21,8 +21,12 @@ async fn main() {
                     }
                 }
                 let local_set = LocalSet::new();
-                let (http_dom_rewriter, local_task) =
-                    server::HttpDomRewriter::new((FacetInliner, Cachebuster));
+                let (http_dom_rewriter, local_task) = server::HttpDomRewriter::new((
+                    Cachebuster {
+                        base_path: "./site".into(),
+                    },
+                    FacetInliner,
+                ));
 
                 local_set.spawn_local(local_task);
 

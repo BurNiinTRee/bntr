@@ -9,7 +9,7 @@ nontheless also work without JavaScript.
 This is achieved by a middleware in the server that finds all Facet component
 definitions in the returned HTML and inserts them as a declarative shadow dom
 into the usages.
-While doing so, it strips out any <code>&lt;script&gt;</code> elements, and
+While doing so, it strips out any <code>&lt;script></code> elements, and
 inserts transitively used components.
 If and when the JavaScript loads, all the declarative shadow DOMs get replaced
 by the Facet component, restoring interactivity.
@@ -24,20 +24,19 @@ The following is an example of a simple interactive custom element.
 <press-counter></press-counter>
 <p>
 It's implementation looks something like this:
-<pre><code>
-&lt;template component="press-counter"&gt;
+<pre><code>&lt;template component="press-counter">
   Pressed
-  &lt;button&gt;
+  &lt;button>
     +
-    &lt;script on="click"&gt;
+    &lt;script on="click">
       const span = root.querySelector("#counter");
       span.innerText = +span.innerText + 1;
-    &lt;/script&gt;
-  &lt;/button&gt; &lt;span id="counter"&gt;0&lt;/span&gt; times.
-&lt;/template&gt;
+    &lt;/script>
+  &lt;/button> &lt;span id="counter">0&lt;/span> times.
+&lt;/template>
 </code></pre>
 <p>
-It can be invoked like any other HTML element, i.e. <code>&lt;press-counter&gt;&lt;/press-counter&gt;</code>.
+It can be invoked like any other HTML element, i.e. <code>&lt;press-counter>&lt;/press-counter></code>.
 
 <p>
 Global mixins are also supported, allthough the <code>prepend</code> attribute
@@ -45,12 +44,11 @@ is ignored.
 This is used to consolidate the style between my components with their Shadow
 DOM and the page specific content in the lightdom.
 For this, I defined the style as usual with a <code>&lt;link
-rel="stylesheet"&gt;</code> element in the <code>&lt;head&gt;</code>, and
-<code>&lt;style&gt;</code> elements in a global mixin, which imports the same
+rel="stylesheet"></code> element in the <code>&lt;head></code>, and
+<code>&lt;style></code> elements in a global mixin, which imports the same
 stylesheet as the <code>&lt;head></code>.
 This looks like this:
-<pre><code>
-&lt;template mixin="style" global>
+<pre><code>&lt;template mixin="style" global>
   &lt;style>
     @import "/style.css" layer;
   &lt;/style>

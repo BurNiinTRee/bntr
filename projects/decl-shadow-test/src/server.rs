@@ -1,30 +1,20 @@
 use std::future::ready;
 
-use axum::middleware;
-use axum::middleware::Next;
-
-use axum::extract::Request;
-
-use axum::extract::State;
-
-use axum::http::header::CONTENT_LENGTH;
-use futures_util::StreamExt;
-use futures_util::stream;
-use tokio::sync::mpsc;
-use tokio::sync::oneshot;
-
-use crate::dom_rewriter::DomRewriter;
-use crate::dom_rewriter::rewrite_stream;
-
-use axum::body::Bytes;
-
-use axum::http::header::CONTENT_TYPE;
-
-use axum::response::Response;
-
-use tokio::sync::mpsc::UnboundedSender;
-
+use axum::{
+    body::Bytes,
+    extract::{Request, State},
+    http::header::{CACHE_CONTROL, CONTENT_LENGTH, CONTENT_TYPE},
+    middleware::{self, Next},
+    response::Response,
+};
+use futures_util::{StreamExt, stream};
+use tokio::sync::{
+    mpsc::{self, UnboundedSender},
+    oneshot,
+};
 use tower_http::services::ServeDir;
+
+use crate::dom_rewriter::{DomRewriter, rewrite_stream};
 
 pub(crate) struct Settings {
     pub port: u16,
@@ -39,7 +29,8 @@ impl Settings {
 pub(crate) async fn run_server(http_dom_rewriter: HttpDomRewriter, settings: Settings) {
     let app = axum::Router::new()
         .fallback_service(ServeDir::new("site"))
-        .layer(middleware::from_fn_with_state(http_dom_rewriter, ssr_facet));
+        .layer(middleware::from_fn_with_state(http_dom_rewriter, ssr_facet))
+        .layer(middleware::from_fn(set_cache_control));
     axum::serve(
         tokio::net::TcpListener::bind(("0.0.0.0", settings.port))
             .await
@@ -109,4 +100,25 @@ pub(crate) async fn ssr_facet(
 ) -> Response {
     let response = next.run(req).await;
     rewriter.rewrite(response).await
+}
+
+async fn set_cache_control(req: Request, next: Next) -> Response {
+    let add_cache_control = req
+        .uri()
+        .query()
+        .iter()
+        .flat_map(|q| q.split('&'))
+        .flat_map(|q| q.split_once('='))
+        .any(|pair| pair.0 == "cachebust");
+    let mut res = next.run(req).await;
+    if add_cache_control {
+        res.headers_mut().insert(
+            CACHE_CONTROL,
+            "max-age=31536000,immutable".try_into().unwrap(),
+        );
+    } else {
+        res.headers_mut()
+            .insert(CACHE_CONTROL, "no-cache".try_into().unwrap());
+    }
+    res
 }

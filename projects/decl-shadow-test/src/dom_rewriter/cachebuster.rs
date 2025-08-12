@@ -1,4 +1,10 @@
-use std::{collections::HashMap, convert::Infallible, fs, io::Read, ops::Deref, path::Path};
+use std::{
+    collections::HashMap,
+    convert::Infallible,
+    fs,
+    ops::Deref,
+    path::{Path, PathBuf},
+};
 
 use base64::{Engine, prelude::BASE64_URL_SAFE};
 use sha2::{Digest as _, Sha256};
@@ -9,13 +15,15 @@ use super::{
     rcdom::{Handle, NodeData},
 };
 
-pub(crate) struct Cachebuster;
+pub(crate) struct Cachebuster {
+    pub base_path: PathBuf,
+}
 
 impl DomRewriter for Cachebuster {
     type Err = Infallible;
 
     async fn rewrite(&mut self, dom: &super::rcdom::RcDom) -> Result<(), Self::Err> {
-        fix_link_elements(dom.document.clone(), Path::new("./site/"));
+        fix_link_elements(dom.document.clone(), &self.base_path);
         Ok(())
     }
 }
@@ -36,25 +44,7 @@ pub(crate) fn fix_link_elements(node: Handle, base_path: &Path) {
                     .find(|a| &a.name.local == "href")
                     && is_local_url(&attr.value)
                 {
-                    let mut file_path = base_path.to_owned();
-                    file_path.push(attr.value.strip_prefix("/").unwrap_or(&attr.value));
-                    let mut file = fs::File::open(file_path).unwrap();
-                    let mut hasher = Sha256::new();
-                    let mut buf = vec![];
-                    while let Ok(n) = file.read(&mut buf)
-                        && n > 0
-                    {
-                        hasher.update(&buf);
-                        buf.clear();
-                    }
-
-                    let digest = BASE64_URL_SAFE.encode(hasher.finalize());
-
-                    if attr.value.contains("?") {
-                        attr.value.push_slice(&format!("&cachebust={digest}"));
-                    } else {
-                        attr.value.push_slice(&format!("?cachebust={digest}"));
-                    }
+                    process_url(&mut attr.value, base_path);
                 }
             } else if &name.local == "script"
                 && let Some(_attr) = attrs
@@ -110,14 +100,7 @@ fn process_url(url: &mut StrTendril, base_path: &Path) {
     file_path.push(url.strip_prefix("/").unwrap_or(url));
     let mut file = fs::File::open(file_path).unwrap();
     let mut hasher = Sha256::new();
-    let mut buf = vec![];
-    while let Ok(n) = file.read(&mut buf)
-        && n > 0
-    {
-        hasher.update(&buf);
-        buf.clear();
-    }
-
+    std::io::copy(&mut file, &mut hasher).unwrap();
     let digest = BASE64_URL_SAFE.encode(hasher.finalize());
 
     if url.contains("?") {

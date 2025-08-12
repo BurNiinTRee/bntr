@@ -52,7 +52,12 @@ async fn copy_rewrite(settings: Settings, html_prefix: &[u8]) {
             file.read_to_end(&mut contents).unwrap();
             let out = rewrite_stream(
                 once(ready(Result::<_, Infallible>::Ok(Bytes::from(contents)))),
-                &mut (Cachebuster, FacetInliner),
+                &mut (
+                    Cachebuster {
+                        base_path: settings.source_dir.clone(),
+                    },
+                    FacetInliner,
+                ),
             )
             .await
             .unwrap();

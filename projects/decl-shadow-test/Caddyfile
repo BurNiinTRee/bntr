@@ -1,6 +1,6 @@
 :8080 {
-    root * out/
-    @cachebuster query cachebust=*
-    header @cachebuster Cache-Control max-age=31536000,immutable
-    file_server
+	root * out/
+	@cachebuster query cachebust=*
+	header @cachebuster Cache-Control max-age=31536000,immutable
+	file_server
 }
