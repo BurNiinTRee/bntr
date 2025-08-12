@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  lib,
   ...
 }:
 let
@@ -8,6 +9,9 @@ let
     nixpkgs
     treefmt-nix
     ;
+  isPartFile = p: (builtins.baseNameOf p) == "part.nix";
+  files = (lib.filesystem.listFilesRecursive ../projects);
+  extraPartFiles = builtins.filter isPartFile files;
 in
 {
   debug = true;
@@ -21,7 +25,9 @@ in
     ./nixos
     ./templates
     treefmt-nix.flakeModule
-  ];
+    inputs.flake-parts.flakeModules.modules
+  ]
+  ++ extraPartFiles;
 
   flake.flakeModules = {
     nixpgks = ./flake/nixpkgs.nix;

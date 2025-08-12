@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+}
+:root {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  --code-bg: #EEEEEE;
+}
+button, input[type=button] {
+  /* font: inherit; */
+  font-family: monospace;
+  font-size: 16px;
+}
+code {
+  font-family: "Fira Code", monospace;
+  background-color: var(--code-bg);
+}
+
+pre:has(> code) {
+  overflow-x: scroll;
+  background-color: var(--code-bg);
+  padding: 1.0em;
+}
+
+main {
+  margin-inline: auto;
+  width: min(90%, 800px);
+  padding-block-end: 0.5em;
+}
+nav-header {
+  position: sticky;
+  top: 0;
+}
+nav {
+  background-color: rgba(184, 144, 242, 1);
+  padding-block: 0.5em;
+}
+ul {
+  display: flex;
+  margin: 0;
+  list-style-type: none;
+  gap: 2em;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+

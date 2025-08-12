@@ -1,16 +1,63 @@
-<!DOCTYPE html>
 <title>Declarative Shadowroot Test</title>
 <my-layout>
 <h1>Test page</h1>
+
 <p>
 Here I am playing around with an approach for generating (mostly static) pages
-via <a href="https://github.com/kgscialdone/facet">Facet Web Components</a> that nontheless also work without JavaScript.
-This is achieved by a middleware in the server that finds all Facet component definitions
-in the returned HTML and inserts them as a declarative shadow dom into the usages.
-While doing so, it strips out any <code>&lt;script&gt;</code> elements, and inserts transitively used components.
-If and when the JavaScript loads, all the declarative shadow doms get replaced by the Facet component,
-restoring interactivity.
+via <a href="https://github.com/kgscialdone/facet">Facet Web Components</a> that
+nontheless also work without JavaScript.
+This is achieved by a middleware in the server that finds all Facet component
+definitions in the returned HTML and inserts them as a declarative shadow dom
+into the usages.
+While doing so, it strips out any <code>&lt;script></code> elements, and
+inserts transitively used components.
+If and when the JavaScript loads, all the declarative shadow DOMs get replaced
+by the Facet component, restoring interactivity.
+
 <p>
-To prevent having to include the component definitions into every page, the server also appends
-a common HTML file into before processing. This leads to absolutely awful HTML, that is still parsed correctly.
-</my-layout>
+To prevent having to include the component definitions into every page, the
+server also appends a common HTML file into before processing.
+This leads to absolutely awful HTML, that is still parsed correctly.
+
+<p>
+The following is an example of a simple interactive custom element.
+<press-counter></press-counter>
+<p>
+It's implementation looks something like this:
+<pre><code>&lt;template component="press-counter">
+  Pressed
+  &lt;button>
+    +
+    &lt;script on="click">
+      const span = root.querySelector("#counter");
+      span.innerText = +span.innerText + 1;
+    &lt;/script>
+  &lt;/button> &lt;span id="counter">0&lt;/span> times.
+&lt;/template>
+</code></pre>
+<p>
+It can be invoked like any other HTML element, i.e. <code>&lt;press-counter>&lt;/press-counter></code>.
+
+<p>
+Global mixins are also supported, allthough the <code>prepend</code> attribute
+is ignored.
+This is used to consolidate the style between my components with their Shadow
+DOM and the page specific content in the lightdom.
+For this, I defined the style as usual with a <code>&lt;link
+rel="stylesheet"></code> element in the <code>&lt;head></code>, and
+<code>&lt;style></code> elements in a global mixin, which imports the same
+stylesheet as the <code>&lt;head></code>.
+This looks like this:
+<pre><code>&lt;template mixin="style" global>
+  &lt;style>
+    @import "/style.css" layer;
+  &lt;/style>
+&lt;/template>
+</code></pre>
+
+<p>
+The <code>@import</code> at-rule is usually hard to use correctly, because it
+leads to resources which are only discovered late in the rendering of the page.
+Here we are loading exactly the same stylesheet which was already loaded in the
+<code>&lt;head></code> which is then simply re-used without any extra network
+requests.

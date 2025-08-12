@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/style.css">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.svg">
+<script type="importmap">
+{
+  "imports": {
+    "/facet.js": "/facet.js"
+  }
+}
+</script>
+<script defer type="module">
+  import facet from "/facet.js";
+  facet.discoverDeclarativeComponents(document);
+</script>
+
+<template mixin="style" global>
+  <style>
+    /*-------------------------------------------------------------*\
+    |* By the time we get here, this stylesheet is already loaded. *|
+    \*-------------------------------------------------------------*/
+    @import
+    /* begin assetreplace out/style.css  */
+    "/style.css"
+    /* end assetreplace */
+    layer;
+  </style>
+</template>
+
+<template component="my-layout">
+  <nav-header></nav-header>
+  <main><slot><h1>Empty page</h1></slot></main>
+</template>
+
+<template component="nav-header">
+  <nav><ul>
+    <li><a href="/">Home
+    <li><a href="/layout.html">Layout
+    <li><a href="/empty.html">Empty
+  </ul></nav>
+</template>
+
+<template component="press-counter">
+  Pressed
+  <button>
+    +
+    <script on="click">
+      const span = root.querySelector("#counter");
+      span.innerText = +span.innerText + 1;
+    </script>
+  </button> <span id="counter">0</span> times.
+</template>
