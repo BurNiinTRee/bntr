@@ -1,15 +1,60 @@
 {
   "name": "Web Components Playground",
   "short_name": "WC Playground",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "rgb(184, 144, 242)",
+  "background_color": "rgb(184, 144, 242)",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/icons/16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/300x300.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/scalable.svg",
       "sizes": "any",
       "type": "image/svg"
     }
-  ],
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#b890f2",
-  "background_color": "#ffffff"
+  ]
 }
