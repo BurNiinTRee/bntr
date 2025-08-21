@@ -365,11 +365,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755625756,
-        "narHash": "sha256-t57ayMEdV9g1aCfHzoQjHj1Fh3LDeyblceADm2hsLHM=",
+        "lastModified": 1755739851,
+        "narHash": "sha256-SC703bnPGOPWSEdZN2J2MkJWQBcUHV4QzuvFPdSVUME=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dd026d86420781e84d0732f2fa28e1c051117b59",
+        "rev": "3c3510e61ca5c15a0f13d73c2232fa2d5478a86c",
         "type": "github"
       },
       "original": {
@@ -575,11 +575,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1755593991,
-        "narHash": "sha256-BA9MuPjBDx/WnpTJ0EGhStyfE7hug8g85Y3Ju9oTsM4=",
+        "lastModified": 1755724639,
+        "narHash": "sha256-lQvTMg+zXtjkoBrppU5zbRpBpXtPq4/v4aHgk4BUSro=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a58390ab6f1aa810eb8e0f0fc74230e7cc06de03",
+        "rev": "9b25c330be40afe4b8be9a493439f81aaae27d5f",
         "type": "github"
       },
       "original": {
@@ -669,11 +669,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1755186698,
-        "narHash": "sha256-wNO3+Ks2jZJ4nTHMuks+cxAiVBGNuEBXsT29Bz6HASo=",
+        "lastModified": 1755615617,
+        "narHash": "sha256-HMwfAJBdrr8wXAkbGhtcby1zGFvs+StOp19xNsbqdOg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fbcf476f790d8a217c3eab4e12033dc4a0f6d23c",
+        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
         "type": "github"
       },
       "original": {
@@ -762,11 +762,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755657401,
-        "narHash": "sha256-rPHuWPAcwW63wH1SUtDCqAnf2+60pi/pGMCIhVobzXc=",
+        "lastModified": 1755743804,
+        "narHash": "sha256-M6qT02voARH5e9eTXQBzpYIE/hAp6jPgBCyxLmw5uBM=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "292ca754b0f679b842fbfc4734f017c351f0e9eb",
+        "rev": "80322e975e27d834451d6b66e63f8abae9d74bf2",
         "type": "github"
       },
       "original": {
