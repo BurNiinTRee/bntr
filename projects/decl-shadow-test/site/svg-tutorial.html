@@ -1,0 +1,731 @@
+<title>SVG Stuff</title>
+<my-layout>
+<p>
+These images are from <a href="svg-tutorial.com">svg-tutorial.com</a>.
+
+<h2>Day 1</h2>
+<svg width=200 height=200>
+  <circle
+    cx=100
+    cy=120
+    r=70
+    fill=#D1495B
+  />
+  <rect
+    x=82
+    y=35
+    width=36
+    height=20
+    fill=#F79257
+  />
+  <circle
+    cx=100
+    cy=25
+    r=12
+    fill=none
+    stroke=#F79257
+    stroke-width=2
+  />
+</svg>
+
+<h2>Day 2</h2>
+<svg width=200 height=400 viewbox="-100 -200 200 400">
+  <polygon
+    points="0,0 80,120 -80,120"
+    fill=#234236
+  />
+  <polygon
+    points="0,-40 60,60 -60,60"
+    fill=#0C5C4C
+  />
+  <polygon
+    points="0,-80 40,0 -40,0"
+    fill=#38755B
+  />
+  <rect x=-20 y=120 width=40 height=30 fill=brown />
+</svg>
+
+<h2>Day 3</h2>
+<svg id=day3 width=200 height=200 viewbox="-100 -100 200 200">
+  <circle class=head cx=0 cy=-50 r=30 />
+  <circle class=eye cx=-12 cy=-55 r=3 />
+  <circle class=eye cx=12 cy=-55 r=3 />
+  
+  <line class=limb x1=-40 y1=-10 x2=40 y2=-10 />
+  <line class=limb x1=-25 y1=50 x2=0 y2=-15 />
+  <line class=limb x1=25 y1=50 x2=0 y2=-15 />
+  <rect class=mouth x=-10 y=-40 width=20 height=5 rx=2 />
+  <circle cx=0 cy=-10 r=5 />
+  <circle cx=0 cy=10 r=5 />
+</svg>
+<style>
+#day3 {
+  .head {
+    fill: #cd803d;
+  }
+  .limb {
+    stroke: #cd803d;
+    stroke-width:  35px;
+    stroke-linecap: round;
+  }
+  .mouth {
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+  }
+  .eye {
+    fill: white;
+  }
+}
+</style>
+
+<h2>Day 4</h2>
+<svg id=day4 width=200 heigh=200 viewbox="-100 -100 200 200">
+  <polygon class=wall points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+  <polyline class=roof points="-75,-8 0,-78 75,-8" />
+  <rect class=door x=-45 y=10 width=30 height=60 rx=2 />
+  <circle class=door-knob cx=-35 cy=40 r=2 />
+  <rect class=stair x=-47 y=70 width=34 height=5 />
+  <rect class=stair x=-49 y=75 width=38 height=5 />
+
+  <rect class=window x=5 y=15 width=40 height=35 rx=5 />
+  <line x1=5 y1=32.5 x2=45 y2=32.5 />
+  <line x1=25 y1=15 x2=25 y2=50 />
+  <rect class=window-sill x=2 y=48 width=46 height=5 rx=5 />
+
+  <circle class=window cx=0 cy=-25 r=15 />
+  <line x1=-15 y1=-25 x2=15 y2=-25 />
+  <line x1=0 y1=-40 x2=0 y2=-10 />
+</svg>
+<style>
+#day4 {
+  stroke: black;
+  stroke-width: 2px;
+  fill: white;
+  .roof {
+    fill: none;
+    stroke: #d1395b;
+    stroke-width: 10px;
+    stroke-linecap: round;
+  }
+  .door {
+    fill: #d1495b;
+  }
+  .stair {
+    fill: gray;
+  } 
+  .window {
+    fill: #fdea96;
+  }
+  .window-sill {
+    fill: #d1395b;
+    stroke-linecap: round;
+  }
+}
+</style>
+
+<h2>Day 5</h2>
+This day contains several examples.
+<h3>Hamburger</h3>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <path
+    d="
+      M -45, -45
+      L 45, -45
+      M -45 0
+      L 45 0
+      M -45 45
+      L 45 45
+    "
+    stroke=#333333
+    stroke-width=15
+    stroke-linecap=round
+  />
+</svg>
+<h3>Heart</h3>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <path
+    d="
+      M -30 -20
+      L   0  10
+      L  30 -20
+    "
+    fill=none
+    stroke=red
+    stroke-width=80
+    stroke-linecap=round
+  />
+</svg>
+<h3>Excercise: Full-screen Icon</h3>
+<svg width=50 height=50 viewbox="0 0 3 3">
+  <path
+    d="
+      M 1 0
+      L 0 0
+      L 0 1
+      M 2 0
+      L 3 0
+      L 3 1
+      M 1 3
+      L 0 3
+      L 0 2
+      M 2 3
+      L 3 3
+      L 3 2
+    "
+    fill=none
+    stroke=black
+    stroke-width=0.7
+</svg>
+<h3>Arrow Icon</h3>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <path
+    d="
+      M -70   0
+      L  70   0
+      L  30 -50
+      M  70   0
+      L  30  50
+    "
+    fill=none
+    stroke=#d1495b
+    stroke-width=25
+    stroke-linecap=round
+    stroke-linejoin=round
+  />
+</svg>
+
+<h2>Day 6</h2>
+<svg width=200 height=200 viewbox="-100 -200 200 400">
+  <path
+    d="
+      M   0 -80
+      Q   5 -75 0 -70
+      Q -10 -65 0 -60
+      Q  15 -55 0 -50
+      Q -20 -45 0 -40
+      Q  25 -35 0 -30
+      Q -30 -25 0 -20
+      Q   35 -15 0 -10
+      Q  -40  -5 0   0
+      Q   45   5 0  10
+      Q  -50  15 0  20
+      Q   55  25 0  30
+      Q  -60  35 0  40
+      Q   65  45 0  50
+      Q  -70  55 0  60
+      Q   75  65 0  70
+      Q  -80  75 0  80
+      Q   85  85 0  90
+      Q  -90  95 0 100
+      Q   95 105 0 110
+      Q -100 115 0 120
+      L    0 140
+      L   20 140
+      L  -20 140
+    "
+    fill=none
+    stroke=#0c5c4c
+    stroke-width=5
+</svg>
+
+<h2>Day 7</h2>
+<svg id=day7 width=200 height=200 viewbox="-100 -100 200 200">
+  <circle cx=0 cy=-50 r=10 fill=#a9172a />
+  <rect class=box x=-60 y=-40 width=120 height=100 />
+  <rect class=box x=-70 y=-47 width=140 height=20 />
+  <rect class=stripe x=-20 y=-40 width=40 height=100 />
+  <rect class=stripe x=-25 y=-47 width=50 height=20 />
+  <path
+    class=ribbon
+    d="
+      M  0 -50
+      L 30 -50
+      C 50 -50 50 -70 30 -65
+      L  0 -50
+    "
+  />
+  <path
+    class=ribbon
+    d="
+      M   0 -50
+      L -30 -50
+      C -50 -50 -50 -70 -30 -65
+      L   0 -50
+    "
+  />
+</svg>
+<style>
+#day7 {
+  .box {
+    fill: #d1495b;
+    stroke: black;
+    stroke-width: 2
+  }
+  .stripe {
+    fill: white;
+    stroke: black;
+    stroke-width: 2
+  }
+  .ribbon {
+    fill: none;
+    stroke: #b73a3b;
+    stroke-width: 4;
+  }
+}
+</style>
+
+<h2>Day 8</h2>
+<svg id=day8 width=200 height=200 viewbox="-100 -100 200 200">
+  <circle class=ear cx=-40 cy=-50 r=18 />
+  <circle class=ear cx=40 cy=-50 r=18 />
+  <rect class=face x=-55 y=-60 width=110 height=120 rx=50 ry=30 />
+  <circle cx=20 cy=-30 r=3 />
+  <circle cx=-20 cy=-30 r=3 />
+  <path
+    d="
+      M -30 0
+      C -30 -25 30 -25 30 0
+      L 30 30
+      Q 30 40 20 40
+      L -20 40
+      Q -30 40 -30 30
+    "
+    fill=#e5c39c
+  />
+  <path
+    d="
+      M -10 0
+      L 10 0
+      C 10 20 -10 20 -10 0
+    "
+  />
+  <path
+    class=mouth
+    d="
+      M 0 10
+      Q 0 25 10 25
+      M 0 10
+      Q 0 25 -10 25
+    "
+  />
+</svg>
+<style>
+#day8 {
+  background-color: #f5eed7;
+  .ear {
+    fill: #e5c39c;
+    stroke: white;
+    stroke-width: 5;
+  }
+  .face {
+    fill: white;
+  }
+  .mouth {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+  }
+}
+</style>
+
+<h2>Day 9</h2>
+<p>Again, we have multiple examples here.
+<h3>Moon Icon</h3>
+<svg width=200 height=200 viewbox="0 0 30 30">
+  <path
+    d="
+      M 23 5
+      A 12 12 0 1 0 23 25
+      A 12 12 0 0 1 23 5
+    "
+  />
+</svg>
+<h3>Candy Cane</h3>
+<p>This is the main example.</p>
+<svg width=200 height=400 viewbox="-100 -200 200 400">
+  <path
+    d="
+      M 50 120
+      L 50 -80
+      A 50 50 0 1 0 -50 -80
+    "
+    fill=none
+    stroke=black
+    stroke-width=45
+    stroke-linecap=round
+  />
+  <path
+    d="
+      M 50 120
+      L 50 -80
+      A 50 50 0 1 0 -50 -80
+    "
+    fill=none
+    stroke=red
+    stroke-width=35
+    stroke-linecap=round
+  />
+  <path
+    d="
+      M 50 120
+      L 50 -80
+      A 50 50 0 1 0 -50 -80
+    "
+    fill=none
+    stroke=white
+    stroke-width=35
+    stroke-dasharray="30 30"
+  />
+</svg>
+<h3>Lightbulb</h3>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <path
+    d="
+      M -30 20
+      A 50 50 0 1 1 30 20
+      Q 20 30 20 50
+      L -20 50
+      Q -20 30 -30 20
+    "
+    fill=gold
+    stroke=black
+    stroke-width=10
+    stroke-linejoin=round
+  />
+  <path
+    d="
+      M -30 -20
+      A 30 30 0 0 1 0 -50
+    "
+    fill=none
+    stroke=black
+    stroke-width=10
+    stroke-linecap=round
+  />
+  <path
+    d="
+      M -18 62
+      L 18 62
+      M -15 75
+      L 15 75
+    "
+    stroke=black
+    stroke-width=10
+    stroke-linecap=round
+  />
+</svg>
+
+<h2>Day 10</h2>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <g transform=translate(0,5)>
+    <g>
+      <polygon points="0,0 36,-50 0,-100" fill=#edd8b7 />
+      <polygon points="0,0 -36,-50 0,-100" fill=#e5c39c />
+    </g>
+    <g transform=rotate(-72)>
+      <polygon points="0,0 36,-50 0,-100" fill=#edd8b7 />
+      <polygon points="0,0 -36,-50 0,-100" fill=#e5c39c />
+    </g>
+    <g transform=rotate(-144)>
+      <polygon points="0,0 36,-50 0,-100" fill=#edd8b7 />
+      <polygon points="0,0 -36,-50 0,-100" fill=#e5c39c />
+    </g>
+    <g transform=rotate(144)>
+      <polygon points="0,0 36,-50 0,-100" fill=#edd8b7 />
+      <polygon points="0,0 -36,-50 0,-100" fill=#e5c39c />
+    </g>
+    <g transform=rotate(72)>
+      <polygon points="0,0 36,-50 0,-100" fill=#edd8b7 />
+      <polygon points="0,0 -36,-50 0,-100" fill=#e5c39c />
+    </g>
+  </g>
+</svg>
+
+<h2>Day 11</h2>
+<p>Several examples.
+<h3>Sun Icon</h3>
+<svg width=200 height=200 viewbox="-15 -15 30 30">
+  <circle r=6 />
+  <line
+    id=ray
+    stroke=black
+    stroke-width=2
+    stroke-linecap=round
+    x1=0
+    y1=11
+    x2=0
+    y2=14
+  />
+  <use href=#ray transform=rotate(45) />
+  <use href=#ray transform=rotate(90) />
+  <use href=#ray transform=rotate(135) />
+  <use href=#ray transform=rotate(180) />
+  <use href=#ray transform=rotate(225) />
+  <use href=#ray transform=rotate(270) />
+  <use href=#ray transform=rotate(315) />
+</svg>
+<h3>Snowflake</h3>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <path id=branch
+    d="
+      M 0 0 L 0 -90
+      M 0 -20 L 20 -34
+      M 0 -20 L -20 -34
+      M 0 -40 L 20 -54
+      M 0 -40 L -20 -54
+      M 0 -60 L 20 -74
+      M 0 -60 L -20 -74
+    "
+    stroke=#e5c39c
+    stroke-width=5
+  />
+  <use href=#branch transform=rotate(60) />
+  <use href=#branch transform=rotate(120) />
+  <use href=#branch transform=rotate(180) />
+  <use href=#branch transform=rotate(240) />
+  <use href=#branch transform=rotate(300) />
+</svg>
+
+<h2>Day 12</h2>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  </defs>
+    <g id=tree>
+      <polygon points="-10,0 10,0 0,-50" fill=#38755b />
+      <line x1=0 y1=0 x2=0 y2=10 stroke=#778074 stroke-width=2 />
+    </g>
+  </defs>
+
+  <rect x=-100 y=-100 width=200 height=200 fill=#f1dbc3 />
+  <circle cx=0 cy=380 r=350 fill=#f8f4e8 />
+
+  <use href=#tree x=-30 y=25 transform=scale(2) />
+  <use href=#tree x=-20 y=40 transform=scale(1.2) />
+  <use href=#tree x=40 y=40 />
+  <use href=#tree x=50 y=30 transform=scale(1.5) />
+</svg>
+
+<h2>Day 13</h2>
+<svg id=day13 width=200 height=200>
+  <g transform=translate(70,170)>
+    <g transform=rotate(-25)>
+      <!-- 1st arm -->
+      <circle r=5 />
+      <path class=arm d="M 0 0 L 0 -70" />
+      <g transform=translate(0,-70)>
+        <g transform=rotate(50)>
+          <!-- 2nd arm -->
+          <circle r=5 />
+          <path class=arm d="M 0 0 L 0 -70" />
+          <g transform=translate(0,-70)>
+            <g transform=rotate(45)>
+            <!-- 3rd arm -->
+              <circle r=5 />
+              <path class=arm d="M 0 0 L 0 -30" />
+              <g transform=translate(0,-30)>
+                <g transform=rotate(-90)>
+                  <!-- head -->
+                  <path
+                    d="
+                      M -30 30
+                      Q 0 -20 30 30
+                      Q 0 35 -30 30
+                    "
+                    fill=gray
+                  />
+                  <circle cx=0 cy=25 r=10 fill=gold />
+                  <path
+                    d="
+                      M -30 30
+                      Q 0 -20 30 30
+                      Q 0 25 -30 30
+                    "
+                  />
+                  <rect x=-10 y=-10 width=20 height=30 rx=5 />
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <ellipse cx=100 cy=175 rx=30 ry=5 />
+  <ellipse cx=100 cy=170 rx=30 ry=5 fill=gray />
+</svg>
+<style>
+#day13 {
+  .arm {
+    stroke: black;
+    stroke-width: 7;
+    stroke-linecap: round;
+  }
+}
+</style>
+
+<h2>Day 14</h2>
+<svg id=day14 width=200 height=200 viewbox="-100 -200 200 400" fill=rgba(0,0,0,0.5)>
+  <g transform=translate(0,-50)>
+    <g id=windmill-head>
+      <circle r=8 />
+      <path id=arm
+        d="
+          M -7 -20
+          C -7 -10 7 -10 7 -20
+          L 2 -80
+          L -2 -80
+        "
+      />
+      <use href=#arm transform=rotate(120) />
+      <use href=#arm transform=rotate(-120) />
+    </g>
+  </g>
+  <path d="M -7 100 L 7 100 L 3 -35 L -3 -35" />
+</svg>
+<style>
+#day14 {
+  #windmill-head {
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
+<h2>Day 15</h2>
+<svg id=day15 width=200 height=200 viewbox="-100 -100 200 200">
+  <g id=bell stroke=black stroke-width=2>
+    <circle cx=0 cy=-45 r=7 fill=#4f6d7a />
+    <circle id=bell-clapper cx=0 cy=50 r=10 fill=#f79257 />
+    <path
+      d="
+        M -50 40
+        L -50 50
+        L 50 50
+        L 50 40
+        Q 40 40 40 10
+        C 40 -60 -40 -60 -40 10
+        Q -40 40 -50 40
+      "
+      fill=#fdea96
+    />
+  </g>
+</svg>
+<style>
+#day15 {
+  #bell {
+    transform-origin: 0 -45px;
+  }
+  &:hover #bell,
+  &:hover #bell-clapper {
+    animation-duration: 0.5s;
+    animation-delay: -0.25s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-name: ring;
+  }
+}
+@keyframes ring {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(20deg);
+  }
+}
+</style>
+
+<h2>Day 16</h2>
+<svg id=day16 width=400 height=200 viewbox="-200 -100 400 200" fill=none>
+  <path stroke=#e0ceb9 stroke-width=4
+    d="
+      M -200 80 L -80 80 Q 80 80 70 -10 A 70 70 0 0 0 -70 -10 Q -80 80 80 80 L 200 80
+    "
+  />
+  <g class=sleigh>
+    <path stroke=#af6455 stroke-width=5
+      d="
+        M -30 -2 L 30 -2 A 10 10 0 0 0 30 -22
+        M -20 -2 L -20 -17
+        M 20 -2 L 20 -17
+      "
+    />
+    <path stroke=#7a504f stroke-width=6
+      d="
+        M -27 -17 L 27 -17
+      "
+    />
+  </g>
+</svg>
+<style>
+#day16 {
+  .sleigh {
+    offset-path: path(
+      "M -200 80 L -90 80 Q 60 80 60 -10 A 50 50 0 0 0 -60 -10 Q -60 80 90 80 L 200 80"
+    );
+    animation: roller-coaster 6000ms infinite linear;
+  }
+}
+@keyframes roller-coaster {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+</style>
+
+<h2>Day 17</h2>
+<a href=/ class=menu></a>
+<style>
+.menu {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='-100 -100 200 200'><path d='M -45 -45 L 45 -45 M -45 0 L 45 0 M -45 45 L 45 45' stroke='black' stroke-width='15' stroke-linecap='round'/></svg>");
+}
+
+.menu {
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='31'><path fill='white' stroke='black' stroke-width='2.5' d='M 2.549 2.935 L 6.993 26.043 L 11.646 16.041 L 22.993 14.425 Z'/></svg>"), auto;
+}
+
+#day16 {
+  background-color: #38755b;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 120 120'><polyline fill='none' stroke='%230c5c4c' stroke-width='42.4' points='-30 0 60 90 150 0'/></svg>")
+}
+</style>
+
+<h2>Day 18</h2>
+<svg width=200 height=200>
+  <text x=20 y=180 font-family=cursive font-size=50 font-weight=bold>Hello</text>
+</svg>
+<svg width=200 height=200>
+  <text x=20 y=180 font-family=Arial font-size=50 font-weight=bold fill=transparent stroke=black stroke-width=2>Hello</text>
+</svg>
+<svg width=200 height=200>
+  <text x=100 y=100 font-family=Arial font-size=50 font-weight=bold text-anchor=middle alignment-baseline=middle fill=transparent stroke=black stroke-width=2>Hello</text>
+</svg>
+<svg width=200 height=200>
+  <text x=25 y=120 font-family=Arial font-size=110 font-weight=900 letter-spacing=-17 fill=white stroke=black stroke-width=4>svg</text>
+</svg>
+<svg width=200 height=200>
+  <text x=25 y=120 font-family=Arial font-size=110 font-weight=900 letter-spacing=-17 fill=white stroke=black stroke-width=4 paint-order="stroke fill markers">svg</text>
+</svg>
+<svg width=200 height=200 viewbox="-100 -100 200 200">
+  <path id=curve d="M -80 40 Q 0 20 80 40" fill=transparent stroke=red stroke-width=2 />
+  <text font-family=Arial font-size=120 font-weight=bold fill=white stroke=black stroke-width=2 letter-spacing=-20><textpath href=#curve>svg</textpath></text>
+</svg>
