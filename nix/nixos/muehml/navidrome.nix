@@ -4,7 +4,7 @@ let
 in
 {
   services.navidrome = {
-    enable = true;
+    # enable = true;
     settings = {
       BaseUrl = "https://${domain}/";
       MusicFolder = "/mnt/navidrome/music";
