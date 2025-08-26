@@ -1,10 +1,19 @@
 { config, withSystem, ... }:
 {
   flake.modules.devenv.decl-shadow-test =
-    { ... }:
+    { pkgs, ... }:
     {
       imports = [ config.flake.modules.devenv.rust ];
-
+      processes.site-watch.exec = ''${pkgs.nushell}/bin/nu -c "watch ./site { cargo r --release -- build }"'';
+      services.caddy = {
+        enable = true;
+        virtualHosts.":8080".extraConfig = ''
+          root * out/
+          @cachebuster query cachebust=*
+          header @cachebuster Cache-Control max-age=31536000,immutable
+          file_server
+        '';
+      };
     };
 
   perSystem =
