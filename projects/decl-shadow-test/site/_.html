@@ -17,16 +17,7 @@
 </script>
 
 <template mixin="style" global>
-  <style>
-    /*-------------------------------------------------------------*\
-    |* By the time we get here, this stylesheet is already loaded. *|
-    \*-------------------------------------------------------------*/
-    @import
-    /* begin assetreplace out/style.css  */
-    "/style.css"
-    /* end assetreplace */
-    layer;
-  </style>
+  <link rel=stylesheet href="/style.css">
 </template>
 
 <template component="my-layout">
@@ -37,8 +28,8 @@
 <template component="nav-header">
   <nav><ul>
     <li><a href="/">Home</a>
-    <li><a href="/layout.html">Layout</a>
     <li><a href="/svg-tutorial.html">SVG Stuff</a>
+    <li><a href="/layout.html">Layout</a>
     <li><a href="/empty.html">Empty</a>
   </ul></nav>
 </template>
