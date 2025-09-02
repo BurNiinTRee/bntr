@@ -44,7 +44,7 @@ in
               imports = [
                 ../home/user
                 impermanence.nixosModules.home-manager.impermanence
-                nix-index-db.hmModules.nix-index
+                nix-index-db.homeModules.nix-index
               ];
               _module.args.flakeInputs = inputs;
               _module.args.selfLocation = selfLocation;
@@ -83,7 +83,7 @@ in
     #       home-manager.users.user = {
     #         imports = [
     #           ../home/user
-    #           nix-index-db.hmModules.nix-index
+    #           nix-index-db.homeModules.nix-index
     #           # I should get rid of this
     #           impermanence.nixosModules.home-manager.impermanence
     #           {

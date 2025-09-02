@@ -19,6 +19,9 @@
       options = [ "discard,defaults,noatime" ];
     };
 
-    impermanence.directories = [ "/var/lib/postgresql" ];
+    impermanence.directories = [
+      "/var/lib/postgresql"
+      "/var/lib/nixos"
+    ];
   };
 }

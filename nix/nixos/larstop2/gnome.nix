@@ -10,7 +10,7 @@
     enable = true;
   };
 
-  services.xserver = {
+  services = {
     displayManager = {
       gdm = {
         enable = true;
