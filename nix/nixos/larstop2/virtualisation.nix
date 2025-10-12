@@ -3,10 +3,6 @@
   virtualisation = {
     libvirtd = {
       enable = true;
-      qemu.ovmf = {
-        enable = true;
-        packages = [ pkgs.OVMFFull.fd ];
-      };
     };
     spiceUSBRedirection.enable = true;
     podman = {
