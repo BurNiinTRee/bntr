@@ -10,7 +10,6 @@
     package = config.lib.nixGL.wrap pkgs.ghostty;
     settings = {
       command = [ "nu" ];
-      gtk-adwaita = true;
       font-family = "Fira Code";
       theme = "light:Monokai Pro Light,dark:Monokai Pro";
     };
