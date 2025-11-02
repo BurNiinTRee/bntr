@@ -19,6 +19,8 @@
     font-size: 16px;
     height: 100vh;
     --code-bg: #EEEEEE;
+
+    scroll-padding-top: 43px;
   }
 
   button, input[type=button] {
@@ -68,6 +70,24 @@
       text-decoration: underline 2px;
       color: black;
     }
+  }
 
+  my-tabs {
+    nav {
+      display: flex;
+      gap: 15px;
+      a {
+        color: black;
+      }
+    }
+    section {
+      display: flex;
+      overflow-x: hidden;
+      /* width: 100%; */
+      article {
+        flex: none;
+        width: 100%;
+      }
+    }
   }
 }
