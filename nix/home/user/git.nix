@@ -6,20 +6,26 @@
 {
   programs.git = {
     enable = true;
-    delta.enable = true;
     signing = {
-      signByDefault = true;
+      signByDefault = false;
       key = "Lars Mühmel <larsmuehmel@web.de>";
     };
-    userName = "Lars Mühmel";
-    userEmail = "larsmuehmel@web.de";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Lars Mühmel";
+        email = "larsmuehmel@web.de";
+      };
       init.defaultBranch = "main";
       commit = {
         verbose = true;
       };
       merge.conflictStyle = "zdiff3";
     };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.jujutsu = {
