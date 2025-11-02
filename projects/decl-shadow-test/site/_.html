@@ -29,6 +29,7 @@
   <nav><ul>
     <li><a href="/">Home</a>
     <li><a href="/svg-tutorial.html">SVG Stuff</a>
+    <li><a href="/tabs.html">Tabs</a>
     <li><a href="/layout.html">Layout</a>
     <li><a href="/empty.html">Empty</a>
   </ul></nav>
@@ -43,4 +44,8 @@
       span.innerText = +span.innerText + 1;
     </script>
   </button> <span id="counter">0</span> times.
+</template>
+
+<template component=my-tabs">
+<slot></slot>
 </template>
