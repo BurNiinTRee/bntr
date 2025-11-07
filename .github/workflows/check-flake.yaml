@@ -14,10 +14,10 @@ jobs:
         run: nix shell nixpkgs#attic-client --command attic login muehml https://attic.muehml.eu ${{ secrets.ATTIC_TOKEN }}
       - name: Enable cache
         run: nix shell nixpkgs#attic-client --command attic use ci
-      - name: Check flake
-        run: nix flake check --override-input devenv-root "file+file://"<(printf '%s' "$PWD")
       - name: Push to Attic
         run: |
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.muehml)
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.homeManager)
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths --override-input devenv-root "file+file://"<(printf '%s' "$PWD") .#checks.x86_64-linux.devenv)
+      - name: Check flake
+        run: nix flake check --override-input devenv-root "file+file://"<(printf '%s' "$PWD")
