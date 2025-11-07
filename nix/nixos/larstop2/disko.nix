@@ -13,7 +13,7 @@
             {
               name = "ESP";
               start = "1MiB";
-              end = "512MiB";
+              end = "2GiB";
               bootable = true;
               content = {
                 type = "filesystem";
@@ -25,25 +25,21 @@
               };
             }
             {
-              name = "luks";
-              start = "512MiB";
+              name = "root";
+              start = "2GiB";
               end = "-32GiB";
               content = {
-                type = "luks";
-                name = "crypted";
-                content = {
-                  type = "btrfs";
-                  subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                    };
-                    "/nix" = {
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                      mountpoint = "/nix";
-                    };
+                type = "btrfs";
+                subvolumes = {
+                  "/root" = {
+                    mountpoint = "/";
+                  };
+                  "/nix" = {
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                    mountpoint = "/nix";
                   };
                 };
               };
