@@ -24,7 +24,7 @@
 
   sops.defaultSopsFile = ../../secrets/muehml.eu.yaml;
   # This will automatically import SSH keys as age keys
-  sops.age.sshKeyPaths = [ "/home/user/.ssh/id_ed25519" ];
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   users.users.user = {
     description = "Lars Mühmel";
