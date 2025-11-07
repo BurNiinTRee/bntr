@@ -1,5 +1,5 @@
 keys:
-  - &larstop2 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgevajch6O5ZQYWubHgaRZPnhrFM937mjUQO4gT+Bnr user@bluefin
+  - &larstop2 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrGDO+L4OI8jG0wDHPEWdnAA/hnEUmbuYqhZ0Ax+G4r root@larstop2
   - &muehml age18xluezp2cypkscd80w4hv0vzgeyqu2uvqdxn3ta4uyphvvad8dqqrrvmnp
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
