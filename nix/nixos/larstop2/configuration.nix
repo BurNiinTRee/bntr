@@ -57,6 +57,8 @@
     };
   };
 
+  services.logind.lidSwitch = "ignore";
+
   # hardware.tuxedo-rs = {
   #   enable = true;
   #   tailor-gui.enable = true;
