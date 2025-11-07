@@ -36,26 +36,25 @@ in
           ./larstop2
           setup-inputs
           sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
+          # home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           disko.nixosModules.disko
           comin.nixosModules.comin
           nix-minecraft.nixosModules.minecraft-servers
           {
             nixpkgs.overlays = [ nix-minecraft.overlay ];
-            home-manager.users.user = {
-              imports = [
-                ../home/user
-                impermanence.nixosModules.home-manager.impermanence
-                nix-index-db.homeModules.nix-index
-              ];
-              _module.args.flakeInputs = inputs;
-              _module.args.selfLocation = selfLocation;
-              muehml.nixosIntegration = true;
-              muehml.guiApps = true;
-            };
+            # home-manager.users.user = {
+            #   imports = [
+            #     ../home/user
+            #     impermanence.nixosModules.home-manager.impermanence
+            #     nix-index-db.homeModules.nix-index
+            #   ];
+            #   _module.args.flakeInputs = inputs;
+            #   _module.args.selfLocation = selfLocation;
+            #   muehml.nixosIntegration = true;
+            #   muehml.guiApps = true;
+            # };
           }
-
         ];
       };
     muehml = {

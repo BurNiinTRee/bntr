@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   selfLocation,
@@ -38,9 +39,23 @@
       "wheel"
       "plugdev"
     ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgevajch6O5ZQYWubHgaRZPnhrFM937mjUQO4gT+Bnr user@bluefin"
+    ];
   };
 
+  users.users.root.openssh.authorizedKeys.keys = config.users.users.user.openssh.authorizedKeys.keys;
+
   system.fsPackages = [ pkgs.rclone ];
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "yes";
+    };
+  };
 
   # hardware.tuxedo-rs = {
   #   enable = true;
