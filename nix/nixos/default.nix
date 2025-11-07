@@ -11,6 +11,7 @@ let
     disko
     home-manager
     impermanence
+    nix-minecraft
     nix-index-db
     nixpkgs
     nixpkgs-stable
@@ -39,7 +40,9 @@ in
           impermanence.nixosModules.impermanence
           disko.nixosModules.disko
           comin.nixosModules.comin
+          nix-minecraft.nixosModules.minecraft-servers
           {
+            nixpkgs.overlays = [ nix-minecraft.overlay ];
             home-manager.users.user = {
               imports = [
                 ../home/user

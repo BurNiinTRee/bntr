@@ -13,6 +13,7 @@
     ./impermanence.nix
     ./gnome.nix
     ./gsconnect.nix
+    ./minecraft.nix
     ../nix.nix
     ./gl.nix
     ./steam.nix
