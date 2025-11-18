@@ -57,7 +57,7 @@
     };
   };
 
-  services.logind.lidSwitch = "ignore";
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
 
   # hardware.tuxedo-rs = {
   #   enable = true;
