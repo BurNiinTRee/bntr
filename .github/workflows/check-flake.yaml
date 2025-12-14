@@ -3,7 +3,7 @@ on:
   pull_request:
 
 jobs:
-  flake-check:
+  muehml:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,7 +17,70 @@ jobs:
       - name: Push to Attic
         run: |
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.muehml)
+  larstop2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v12
+      - name: Login to Attic
+        run: nix shell nixpkgs#attic-client --command attic login muehml https://attic.muehml.eu ${{ secrets.ATTIC_TOKEN }}
+      - name: Enable cache
+        run: nix shell nixpkgs#attic-client --command attic use ci
+      - name: Push to Attic
+        run: |
+          nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.larstop2)
+  home-manager:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v12
+      - name: Login to Attic
+        run: nix shell nixpkgs#attic-client --command attic login muehml https://attic.muehml.eu ${{ secrets.ATTIC_TOKEN }}
+      - name: Enable cache
+        run: nix shell nixpkgs#attic-client --command attic use ci
+      - name: Push to Attic
+        run: |
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.homeManager)
+  devenv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v12
+      - name: Login to Attic
+        run: nix shell nixpkgs#attic-client --command attic login muehml https://attic.muehml.eu ${{ secrets.ATTIC_TOKEN }}
+      - name: Enable cache
+        run: nix shell nixpkgs#attic-client --command attic use ci
+      - name: Push to Attic
+        run: |
           nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths --override-input devenv-root "file+file://"<(printf '%s' "$PWD") .#checks.x86_64-linux.devenv)
-      - name: Check flake
-        run: nix flake check --override-input devenv-root "file+file://"<(printf '%s' "$PWD")
+  treefmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v12
+      - name: Login to Attic
+        run: nix shell nixpkgs#attic-client --command attic login muehml https://attic.muehml.eu ${{ secrets.ATTIC_TOKEN }}
+      - name: Enable cache
+        run: nix shell nixpkgs#attic-client --command attic use ci
+      - name: Check formatting
+        run: nix build --override-input devenv-root "file+file://"<(printf '%s' "$PWD") .#checks.x86_64-linux.treefmt
+
+  complete:
+    runs-on: ubuntu-latest
+    needs:
+    - muehml
+    - larstop2
+    - home-manager
+    - devenv
+    - treefmt
+    steps:
+      - name: complete
+        run: echo complete
