@@ -52,7 +52,6 @@
     {
       networking.firewall.allowedUDPPorts = [ 443 ];
       services.nginx = {
-        package = pkgs.nginxQuic;
         virtualHosts."decl-shadow-test.muehml.eu" = {
           forceSSL = true;
           enableACME = true;

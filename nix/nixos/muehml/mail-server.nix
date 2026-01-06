@@ -13,6 +13,7 @@
       };
     };
     certificateScheme = "acme-nginx";
+    stateVersion = 3;
   };
 
   sops.secrets.emailHashedPassword = { };
