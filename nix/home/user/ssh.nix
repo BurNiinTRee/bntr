@@ -20,5 +20,4 @@
       controlPersist = "no";
     };
   };
-  persist.directories = [ ".ssh" ];
 }

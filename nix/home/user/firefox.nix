@@ -6,7 +6,7 @@
 }:
 {
   programs.firefox = lib.mkIf config.muehml.guiApps {
-    enable = true;
+    enable = false;
     package = config.lib.nixGL.wrap (
       pkgs.librewolf.override {
         cfg.speechSynthesisSupport = true;
@@ -24,7 +24,4 @@
     StartWithLastProfile=1
     Version=2
   '';
-  persist.directories = [
-    ".mozilla/firefox/e0b6u9y0.default"
-  ];
 }

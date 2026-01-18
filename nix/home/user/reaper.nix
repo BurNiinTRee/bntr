@@ -18,6 +18,5 @@
       x42-avldrums
       guitarix
     ];
-    persist.directories = [ ".config/REAPER" ];
   };
 }
