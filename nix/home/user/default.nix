@@ -57,6 +57,7 @@ in
         pijul
         ripgrep
         wl-clipboard
+        jjui
       ]
       ++ lib.optionals gui [
         denaro
