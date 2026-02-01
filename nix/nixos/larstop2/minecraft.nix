@@ -15,6 +15,13 @@
         enable = true;
         package = pkgs.neoforgeServers.neoforge-1_21_1;
         jvmOpts = "-Xms6G -Xmx7G";
+        serverProperties.server-port = 25566;
+      };
+      nelvira = {
+        enable = true;
+        package = pkgs.vanillaServers.vanilla-1_21_11;
+        jvmOpts = "-Xms6G -Xmx7G";
+        
       };
     };
   };
@@ -27,6 +34,11 @@
       read -p "You can close the minecraft server console with Ctrl+B followed by D. Continue with Enter.
       "
       exec ${lib.getBin pkgs.tmux}/bin/tmux -S /run/minecraft/create.sock attach
+    '')
+    (pkgs.writeShellScriptBin "minecraft-server-console-nelvira" ''
+      read -p "You can close the minecraft server console with Ctrl+B followed by D. Continue with Enter.
+      "
+      exec ${lib.getBin pkgs.tmux}/bin/tmux -S /run/minecraft/nelvira.sock attach
     '')
   ];
 
