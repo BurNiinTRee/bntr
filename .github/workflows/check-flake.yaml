@@ -84,3 +84,11 @@ jobs:
     steps:
       - name: complete
         run: echo complete
+  failure:
+    runs-on: ubuntu-latest
+    needs:
+    - complete
+    if: contains(needs.complete.result, 'cancelled')
+    steps:
+      - name: fail
+        run: exit 1
