@@ -21,7 +21,6 @@
         enable = true;
         package = pkgs.vanillaServers.vanilla-1_21_11;
         jvmOpts = "-Xms6G -Xmx7G";
-        
       };
     };
   };
