@@ -16,6 +16,7 @@
       x42-plugins
       x42-gmsynth
       x42-avldrums
+      guitarix
     ];
     persist.directories = [ ".config/REAPER" ];
   };
