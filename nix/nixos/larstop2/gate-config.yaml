@@ -1,0 +1,9 @@
+config:
+  bind: 0.0.0.0:25565
+  lite:
+    enabled: true
+    routes:
+      - host: istercraft.muehml.eu
+        backend: localhost:25566
+      - host: nelly.muehml.eu
+        backend: localhost:25567

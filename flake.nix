@@ -46,11 +46,7 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Until https://github.com/Infinidoge/nix-minecraft/pull/161 is merged, we use the
-    # PR branch. It doesn't seem to be too old.
-    nix-minecraft.url = "github:nathanregner/nix-minecraft?ref=neoforge";
-    # nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { flake-parts, ... }@inputs: flake-parts.lib.mkFlake { inherit inputs; } ./nix;
