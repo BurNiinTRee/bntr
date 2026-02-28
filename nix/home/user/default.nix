@@ -71,7 +71,6 @@ in
       ++ lib.optionals gui [
         denaro
         distrobox
-        guitarix
         intel-gpu-tools
         libreoffice-fresh
         qpwgraph
