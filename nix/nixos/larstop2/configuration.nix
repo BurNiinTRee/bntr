@@ -117,5 +117,28 @@
 
   services.sysprof.enable = true;
 
+  services.caddy = {
+    enable = true;
+    openFirewall = true;
+    virtualHosts = {
+      "nelly.muehml.eu" = {
+        extraConfig = ''
+          encode zstd gzip
+          log
+          root /srv/http
+          file_server
+        '';
+      };
+    };
+  };
+
+  users.users.nelly = {
+    isNormalUser = true;
+    initialHashedPassword = "$y$j9T$JIjGNJV7gO1qbuKMXAwI/1$E60iA75y95jqkJLhc5aadxyaz7py7hITGdku8kSrOF/";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6DJXBuVuMn+vBRD7BCQaFp9NyUgGKjeEVA62TfthZZ nlarsson@h-2001-9b1-29fe-8100--a58.na.bahnhof.se"
+    ];
+  };
+
   system.stateVersion = "23.05";
 }
