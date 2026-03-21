@@ -13,7 +13,6 @@
     servers = {
       create = {
         enable = true;
-        openFirewall = true;
         package = pkgs.neoforgeServers.neoforge-1_21_1;
         jvmOpts = "-Xms6G -Xmx7G";
         serverProperties.server-port = 25566;
@@ -51,11 +50,9 @@
   networking.firewall.allowedUDPPorts = [
     24454
     25565
-    25566
   ];
   networking.firewall.allowedTCPPorts = [
     25565
-    25566
   ];
 
   systemd.services.gate = {
