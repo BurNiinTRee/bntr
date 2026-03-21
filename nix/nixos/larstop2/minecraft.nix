@@ -9,10 +9,11 @@
   services.minecraft-servers = {
     enable = true;
     eula = true;
-    openFirewall = true;
+    openFirewall = false;
     servers = {
       create = {
         enable = true;
+        openFirewall = true;
         package = pkgs.neoforgeServers.neoforge-1_21_1;
         jvmOpts = "-Xms6G -Xmx7G";
         serverProperties.server-port = 25566;
@@ -21,6 +22,7 @@
         enable = true;
         package = pkgs.vanillaServers.vanilla-1_21_11;
         jvmOpts = "-Xms6G -Xmx7G";
+        serverProperties.server-port = 25567;
       };
     };
   };
@@ -46,5 +48,18 @@
     config.services.minecraft-servers.dataDir
   ];
 
-  networking.firewall.allowedUDPPorts = [ 24454 ];
+  networking.firewall.allowedUDPPorts = [
+    24454
+    25565
+    25566
+  ];
+  networking.firewall.allowedTCPPorts = [
+    25565
+    25566
+  ];
+
+  systemd.services.gate = {
+    wantedBy = [ "multi-user.target" ];
+    script = "${pkgs.gate}/bin/gate -c ${./gate-config.yaml}";
+  };
 }
