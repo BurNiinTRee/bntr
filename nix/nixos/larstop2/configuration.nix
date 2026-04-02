@@ -42,6 +42,7 @@
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgevajch6O5ZQYWubHgaRZPnhrFM937mjUQO4gT+Bnr user@bluefin"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHnLXKHG2b4DXZUoRFYGmpaBvxVNwDus2xaFEXjiNUkA lars@h-2001-9b1-29fe-8100-abf1-9cb1-e4cb-6884.na.bahnhof.se"
     ];
   };
 
