@@ -5,5 +5,7 @@ config:
     routes:
       - host: istercraft.muehml.eu
         backend: localhost:25566
+      - host: vanilla.istercraft.muehml.eu
+        backend: localhost:25568
       - host: nelly.muehml.eu
         backend: localhost:25567

@@ -17,6 +17,12 @@
         jvmOpts = "-Xms6G -Xmx7G";
         serverProperties.server-port = 25566;
       };
+      vanilla-istercraft = {
+        enable = true;
+        package = pkgs.vanillaServers.vanilla-26_1_2;
+        jvmOpts = "-Xms6G -Xmx7G";
+        serverProperties.server-port = 25568;
+      };
       nelvira = {
         enable = true;
         package = pkgs.vanillaServers.vanilla-1_21_11;
