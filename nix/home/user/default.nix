@@ -17,18 +17,14 @@ in
   imports = [
     ./bitwarden.nix
     ./direnv.nix
-    ./eduroam.nix
     ./email.nix
     ./firefox.nix
     ./ghostty.nix
     ./git.nix
     ./gnome.nix
-    ./gpg.nix
     ./helix.nix
-    ./impermanence.nix
     ./nextcloud.nix
     ./nushell.nix
-    ./password-store.nix
     ./ssh.nix
     ./reaper.nix
     ./wezterm.nix
@@ -39,12 +35,6 @@ in
     muehml.guiApps = lib.mkEnableOption "applications that don't run in a terminal";
   };
   config = {
-    persist.directories = [
-      "bntr"
-      "projects"
-      ".cache/nix"
-    ];
-
     fonts.fontconfig.enable = ifNi true;
 
     programs.gh.enable = true;
@@ -151,10 +141,6 @@ in
           extra-trusted-public-keys = [ "ci:pGN5GUIYtBiawlMyFIapGrGbUT8N1misYuS6iW90neU=" ];
         };
     };
-    persist.files = [
-      ".config/nix/netrc"
-      ".local/share/nix/trusted-settings.json"
-    ];
 
     home = {
       stateVersion = "23.05";

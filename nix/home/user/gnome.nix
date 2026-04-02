@@ -5,14 +5,6 @@
   ...
 }:
 {
-  persist.files = [
-    ".config/monitors.xml"
-    ".config/gnome-initial-setup-done"
-  ];
-  persist.directories = [
-    ".config/goa-1.0"
-  ];
-
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
       sources = [
