@@ -68,8 +68,9 @@
     };
   };
 
+  programs.jjui.enable = true;
+
   home.packages = [
-    flakeInputs.git-branchless.packages.x86_64-linux.git-branchless
     pkgs.meld
   ];
 }
