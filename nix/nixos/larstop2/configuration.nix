@@ -125,7 +125,7 @@
         extraConfig = ''
           encode zstd gzip
           log
-          root /srv/http
+          root /srv/http/nelly
           file_server
         '';
       };
