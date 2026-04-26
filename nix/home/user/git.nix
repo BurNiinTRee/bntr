@@ -32,7 +32,12 @@
     enable = true;
     settings = {
       ui = {
-        default-command = "log";
+        default-command = [
+          "util"
+          "exec"
+          "--"
+          "jjui"
+        ];
         pager = ":builtin";
         diff-formatter = [
           "delta"
