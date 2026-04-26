@@ -21,7 +21,7 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "librewolf.desktop"
+        "net.waterfox.waterfox.desktop"
         "thunderbird.desktop"
         "org.gnome.Nautilus.desktop"
         "com.mitchellh.ghostty.desktop"
