@@ -14,12 +14,12 @@
     "virtio_rng"
   ];
 
-  boot.initrd.postDeviceCommands = ''
-    # Set the system time from the hardware clock to work around a
-    # bug in qemu-kvm > 1.5.2 (where the VM clock is initialised
-    # to the *boot time* of the host).
-    hwclock -s
-  '';
+  # boot.initrd.postDeviceCommands = ''
+  #   # Set the system time from the hardware clock to work around a
+  #   # bug in qemu-kvm > 1.5.2 (where the VM clock is initialised
+  #   # to the *boot time* of the host).
+  #   hwclock -s
+  # '';
 
   boot.initrd.availableKernelModules = [
     "9p"
