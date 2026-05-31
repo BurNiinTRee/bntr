@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
     ./atticd.nix
     ./impermanence.nix
-    ./grafana.nix
+    # ./grafana.nix
     ./mail-server.nix
     ./navidrome.nix
     ./nextcloud-server.nix
