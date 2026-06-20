@@ -41,11 +41,7 @@ in
     owner = "vaultwarden";
   };
 
-  services.nginx.virtualHosts."${subdomain}.${config.networking.fqdn}" = {
-    enableACME = true;
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://${toString config.services.vaultwarden.config.ROCKET_ADDRESS}:${toString config.services.vaultwarden.config.ROCKET_PORT}";
-    };
-  };
+  services.caddy.virtualHosts."${subdomain}.${config.networking.fqdn}".extraConfig = ''
+    reverse_proxy http://${toString config.services.vaultwarden.config.ROCKET_ADDRESS}:${toString config.services.vaultwarden.config.ROCKET_PORT}
+  '';
 }

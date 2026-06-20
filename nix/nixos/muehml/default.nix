@@ -12,9 +12,9 @@
     ./impermanence.nix
     # ./grafana.nix
     ./mail-server.nix
-    ./navidrome.nix
+    # ./navidrome.nix
     ./nextcloud-server.nix
-    ./paperless.nix
+    # ./paperless.nix
     ./vaultwarden.nix
   ];
 
@@ -134,25 +134,21 @@
   ];
 
   security.acme = {
-    defaults.email = "lars@muehml.eu";
+    defaults = {
+      email = "lars@muehml.eu";
+      dnsProvider = "hetzner";
+      credentialFiles."HETZNER_API_TOKEN_FILE" = config.sops.secrets.hetzner-dns-api-token.path;
+    };
     acceptTerms = true;
   };
 
-  services.nginx = {
-    recommendedGzipSettings = true;
-    recommendedOptimisation = true;
-    recommendedTlsSettings = true;
-    recommendedProxySettings = true;
-    virtualHosts."forward.muehml.eu" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/".proxyPass = "http://localhost:54321";
-    };
+  sops.secrets.hetzner-dns-api-token.group = "acme";
+
+  services.caddy = {
+    enable = true;
+    email = config.security.acme.defaults.email;
+    openFirewall = true;
   };
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-  ];
 
   services.postgresql = {
     package = pkgs.postgresql_16;

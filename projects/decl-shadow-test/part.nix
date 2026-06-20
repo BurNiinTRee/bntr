@@ -51,21 +51,14 @@
     { pkgs, ... }:
     {
       networking.firewall.allowedUDPPorts = [ 443 ];
-      services.nginx = {
+      services.caddy = {
         virtualHosts."decl-shadow-test.muehml.eu" = {
-          forceSSL = true;
-          enableACME = true;
-          quic = true;
-          locations."/" = {
-            root = withSystem "x86_64-linux" ({ config, ... }: config.packages.decl-shadow-test-site);
-            index = "index.html";
-            extraConfig = ''
-              if ($arg_cachebust) {
-                add_header Cache-Control "max-age=31536000,immutable";
-              }
-              add_header Alt-Svc "h3=\":443\"";
-            '';
-          };
+          extraConfig = ''
+            root ${withSystem "x86_64-linux" ({ config, ... }: config.packages.decl-shadow-test-site)}
+            @cachebuster query cachebust=*
+            header @cachebuster Cache-Control max-age=31536000,immutable
+            file_server
+          '';
         };
       };
     };
