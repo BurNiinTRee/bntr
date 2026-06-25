@@ -55,18 +55,13 @@ in
     ];
   };
 
-  services.nginx.virtualHosts."${subdomain}.${config.networking.fqdn}" = {
-    enableACME = true;
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://${toString config.services.atticd.settings.listen}";
-      extraConfig = "client_max_body_size 1G;";
-    };
-  };
+  services.caddy.virtualHosts."${subdomain}.${config.networking.fqdn}".extraConfig = ''
+    reverse_proxy http://${toString config.services.atticd.settings.listen}
+  '';
+  # extraConfig = "client_max_body_size 1G;";
 
   sops.secrets = {
     attic-credentials = { };
-
     storage-box-attic = { };
   };
 }

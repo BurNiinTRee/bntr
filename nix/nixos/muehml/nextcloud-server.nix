@@ -47,12 +47,19 @@ in
     after = [ "postgresql.service" ];
   };
 
-  services.nginx.virtualHosts = {
-    ${domain} = {
-      enableACME = true;
-      forceSSL = true;
-    };
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedTlsSettings = true;
+    recommendedProxySettings = true;
+    defaultHTTPListenPort = 8080;
+    defaultListenAddresses = [ "127.0.0.1" ];
   };
+
+  services.caddy.virtualHosts.${domain}.extraConfig = ''
+    reverse_proxy :8080
+  '';
 
   # For mount.cifs, required unless domain name resolution is not needed.
   environment.systemPackages = [ pkgs.cifs-utils ];

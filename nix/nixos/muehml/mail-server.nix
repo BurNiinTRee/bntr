@@ -18,5 +18,5 @@
 
   sops.secrets.emailHashedPassword = { };
 
-  services.nginx.virtualHosts.${config.mailserver.fqdn}.enableACME = true;
+  security.acme.certs.${config.mailserver.fqdn} = { };
 }
