@@ -183,5 +183,3 @@ const facet = new function() {
   ;(fn => document.readyState === 'interactive' ? fn() : document.addEventListener('DOMContentLoaded', fn, {once:true}))
    (() => this.config.autoDiscover && this.discoverDeclarativeComponents(document))
 }
-
-export default facet;
