@@ -1,0 +1,25 @@
+filename = 'CreateOPlenty-NeoForge-Create+6.0.7-3.0.jar'
+name = "Create: Create O' Plenty (Create + Biomes O' Plenty Mod compat)"
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'CreateOPlenty-NeoForge-Create+6.0.7-3.0.jar'
+
+[download]
+hash = '9c636f52e9354fdccc0b53201c22dfb5887f0589'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7476105
+project-id = 1351997
+
+[[x-prismlauncher-dependencies]]
+addonId = '328085'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '220318'
+type = 'REQUIRED'

@@ -1,0 +1,18 @@
+filename = 'create_aeronautics_automated_logistics-0.5.2.jar'
+name = 'Create Aeronautics: Automated Logistics'
+side = 'server'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'create_aeronautics_automated_logistics-0.5.2.jar'
+
+[download]
+hash = 'a156f182fe6a86a7e805fb924e2b78cb3380a2d5'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8348610
+project-id = 1537420

@@ -1,0 +1,18 @@
+filename = 'borderless-neoforge-1.21.1-1.7.5_1-all.jar'
+name = 'Borderless Window'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1', '1.21.2', '1.21.3', '1.21.4', '1.21.5', '1.21.6', '1.21.7', '1.21.8' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'Borderless Window 1.21.1 - NeoForge'
+
+[download]
+hash = '7a5bf5a47b4587cc24e9eedef0964bfdddc0679f'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7604034
+project-id = 378979

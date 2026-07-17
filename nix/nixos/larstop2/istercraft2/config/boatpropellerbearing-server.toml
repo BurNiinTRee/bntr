@@ -1,0 +1,17 @@
+[boat_propeller_bearing]
+	#Thrust and airflow multiplier while enough propeller sails are submerged. 2.0 means 2x normal output per RPM.
+	# Default: 2.0
+	# Range: 0.0 ~ 16.0
+	underwaterEfficiencyMultiplier = 2.0
+	#Maximum visual and thrust-direction tilt in degrees.
+	# Default: 10.0
+	# Range: 0.0 ~ 12.0
+	maxTiltDegrees = 10.0
+	#Fraction of assembled sail blocks that must be in water before the bearing produces thrust. 0.5 means at least half.
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	requiredSubmergedSailFraction = 0.5
+	#Stress impact per sail block. Aeronautics propeller bearings use 2.0 by default.
+	# Default: 2.0
+	# Range: 0.0 ~ 64.0
+	stressImpactPerSail = 2.0

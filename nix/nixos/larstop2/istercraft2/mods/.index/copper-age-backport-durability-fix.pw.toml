@@ -1,0 +1,21 @@
+filename = 'copperagebackport_durability_fix-neoforge-0.1.0.jar'
+name = 'Copper Age Backport Durability Fix'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'copperagebackport_durability_fix-neoforge-0.1.0.jar'
+
+[download]
+hash = '4ec9d6bdae867051f011eefc0ed3a1936b982d59'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7997308
+project-id = 1526218
+
+[[x-prismlauncher-dependencies]]
+addonId = '1386823'
+type = 'REQUIRED'

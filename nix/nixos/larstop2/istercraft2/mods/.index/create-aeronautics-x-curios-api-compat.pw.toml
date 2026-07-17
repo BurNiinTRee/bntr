@@ -1,0 +1,29 @@
+filename = 'createaeronauticscurios-neoforge-1.21.1-2.1.jar'
+name = 'Create Aeronautics x Curios API Compat'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'createaeronauticscurios-neoforge-1.21.1-2.1'
+
+[download]
+hash = 'a2b75b6065c9d56477772b95f539d2e5605423bf'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8249093
+project-id = 1532334
+
+[[x-prismlauncher-dependencies]]
+addonId = '328085'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '309927'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '676721'
+type = 'REQUIRED'

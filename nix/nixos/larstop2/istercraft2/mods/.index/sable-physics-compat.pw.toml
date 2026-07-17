@@ -1,0 +1,18 @@
+filename = 'sablephysicscompat-1.3.0.jar'
+name = 'Sable: Physics Compat'
+side = 'server'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'sablephysicscompat-1.3.0.jar'
+
+[download]
+hash = 'ca5753e923c501acf43ff0d2fcf09f32240504c3'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7975540
+project-id = 1521799

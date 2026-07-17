@@ -1,0 +1,25 @@
+filename = 'SableStuffAdditionsCompat v1.0.3-1.21.1.jar'
+name = "Create Stuff 'N Additions x Sable & Aeronautics Compat"
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'SableStuffAdditionsCompat v1.0.3-1.21.1'
+
+[download]
+hash = '4fc9e4d44986cd08884dc5b170753ec40dc54287'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8158810
+project-id = 1541139
+
+[[x-prismlauncher-dependencies]]
+addonId = '466792'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '1312371'
+type = 'REQUIRED'

@@ -1,0 +1,25 @@
+filename = 'CreateAeronauticsCopycatWing-1.21.1-1.0.2.jar'
+name = 'Create Aeronautics: Copycat Wing'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'CreateAeronauticsCopycatWing-1.21.1-1.0.2.jar'
+
+[download]
+hash = '0e4c37b6327917984dea0885c6ced8341b556568'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8215540
+project-id = 1530305
+
+[[x-prismlauncher-dependencies]]
+addonId = '968398'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '676721'
+type = 'REQUIRED'

@@ -1,0 +1,18 @@
+filename = 'tectonic-3.0.26-neoforge-21.1.jar'
+name = 'Tectonic'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'v3.0.26 ~ Neoforge 21.1'
+
+[download]
+hash = '3114da043f1b54fe32b2801266a27a8f477d7325'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8360847
+project-id = 686836

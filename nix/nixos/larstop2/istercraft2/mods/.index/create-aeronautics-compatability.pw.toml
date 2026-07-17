@@ -1,0 +1,18 @@
+filename = 'aeronauticscompat-1.1.3.jar'
+name = 'Create Aeronautics: Compatibility'
+side = 'server'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'aeronauticscompat-1.1.3.jar'
+
+[download]
+hash = '4d1aea2d6e27705e284d4603aa3422d84464e406'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8406062
+project-id = 1524351
