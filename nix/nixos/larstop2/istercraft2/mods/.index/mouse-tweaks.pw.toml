@@ -1,0 +1,18 @@
+filename = 'MouseTweaks-neoforge-mc1.21-2.26.1.jar'
+name = 'Mouse Tweaks'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '[1.21+ NeoForge] Mouse Tweaks 2.26.1'
+
+[download]
+hash = '6dae57f4f50f7808d2ed9a18f6cd1c0d4640c6bc'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5637846
+project-id = 60089

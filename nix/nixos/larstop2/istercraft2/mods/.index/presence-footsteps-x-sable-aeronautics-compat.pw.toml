@@ -1,0 +1,18 @@
+filename = 'pfsable-1.0.jar'
+name = 'Presence Footsteps x Sable (Aeronautics Compat)'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'Presence Footsteps x Sable 1.0'
+
+[download]
+hash = 'a216dfce15550c50436012283e49606c67a87e29'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8152593
+project-id = 1555269

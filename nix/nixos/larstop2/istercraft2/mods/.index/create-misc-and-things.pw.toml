@@ -1,0 +1,18 @@
+filename = 'create_things_and_misc-4.1.1-neoforge-1.21.1.jar'
+name = 'Create : Misc & Things'
+side = 'server'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '[1.21.1] Create Misc and Things 4.1.1'
+
+[download]
+hash = 'd483dc9564ec37db97dfca306e439c998a7366bb'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8169164
+project-id = 652202

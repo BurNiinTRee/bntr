@@ -1,0 +1,18 @@
+filename = 'PresenceFootsteps-1.21.1-1.12.0-beta.1-1.21NeoForge.jar'
+name = 'Presence Footsteps (NeoForge)'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21', '1.21.1' ]
+x-prismlauncher-release-type = 'beta'
+x-prismlauncher-version-number = 'PresenceFootsteps-1.21.1-1.12.0-beta.1-1.21NeoForge.jar'
+
+[download]
+hash = '71bd6de2b01441d92be1e109879b76b7750bd787'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7252696
+project-id = 1390302

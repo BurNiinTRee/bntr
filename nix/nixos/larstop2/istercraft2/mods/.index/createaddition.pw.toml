@@ -1,0 +1,25 @@
+filename = 'createaddition-1.6.0.jar'
+name = 'Create Crafts & Additions'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'createaddition-neoforge-1.21.1-1.6.0'
+
+[download]
+hash = '87b539d41ed238e98b26c607c0c81a973323147e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8188476
+project-id = 439890
+
+[[x-prismlauncher-dependencies]]
+addonId = '328085'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '238222'
+type = 'OPTIONAL'

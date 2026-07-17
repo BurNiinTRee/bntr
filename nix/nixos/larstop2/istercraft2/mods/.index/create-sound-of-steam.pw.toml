@@ -1,0 +1,21 @@
+filename = 'pipeorgans-0.8.2+1.21.1.jar'
+name = 'Create: Sound of Steam'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'beta'
+x-prismlauncher-version-number = 'Create: Sound of Steam Beta 0.8.2-1.21.1'
+
+[download]
+hash = '112adb2a6f8d9ff60ebd52602f1b01ea96a37920'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7315860
+project-id = 1196142
+
+[[x-prismlauncher-dependencies]]
+addonId = '328085'
+type = 'REQUIRED'

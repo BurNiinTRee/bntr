@@ -1,0 +1,25 @@
+filename = 'sodiumsable-1.0.0.jar'
+name = 'Sodium+Sable COMPAT'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'sodiumsable-1.0.0.jar'
+
+[download]
+hash = '12afdf29d66ca4596c14b7ca99f156a86e2892f8'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8318564
+project-id = 1587678
+
+[[x-prismlauncher-dependencies]]
+addonId = '1312371'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '394468'
+type = 'REQUIRED'

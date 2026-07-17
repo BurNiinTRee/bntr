@@ -1,0 +1,18 @@
+filename = 'sablefloaters-1.0.0.jar'
+name = 'Sable: Floaters'
+side = 'server'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'sablefloaters-1.0.0.jar'
+
+[download]
+hash = '7f1f4014dc10bbd58ed84af8357558225b748268'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8311356
+project-id = 1575208

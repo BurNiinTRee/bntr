@@ -1,0 +1,21 @@
+filename = 'AeroPropBlur-1.21.1-1.0a.jar'
+name = 'Aeronautics Propeller Blur'
+side = ''
+x-prismlauncher-loaders = [ 'neoforge' ]
+x-prismlauncher-mc-versions = [ '1.21.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'AeroPropBlur-1.21.1-1.0a'
+
+[download]
+hash = '5081bcd2b2d32b239983d0bfaa83c2e3669b1a5a'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 8153752
+project-id = 1555520
+
+[[x-prismlauncher-dependencies]]
+addonId = '676721'
+type = 'REQUIRED'
