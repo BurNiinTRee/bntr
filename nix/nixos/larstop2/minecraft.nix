@@ -46,6 +46,11 @@
       "
       exec ${lib.getBin pkgs.tmux}/bin/tmux -S /run/minecraft/nelvira.sock attach
     '')
+    (pkgs.writeShellScriptBin "minecraft-server-console-vanilla-istercraft" ''
+      read -p "You can close the minecraft server console with Ctrl+B followed by D. Continue with Enter.
+      "
+      exec ${lib.getBin pkgs.tmux}/bin/tmux -S /run/minecraft/vanilla-istercraft.sock attach
+    '')
   ];
 
   persist.directories = [
