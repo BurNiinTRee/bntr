@@ -47,6 +47,7 @@ in
     programs.htop.enable = true;
     programs.nix-index.enable = true;
     programs.nix-index-database.comma.enable = true;
+    programs.devenv.enable = true;
     home.packages =
       with pkgs;
       [
