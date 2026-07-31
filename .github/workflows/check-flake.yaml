@@ -16,7 +16,9 @@ jobs:
         run: nix shell nixpkgs#attic-client --command attic use ci
       - name: Push to Attic
         run: |
-          nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.muehml)
+          set -euo pipefail -o errtrace
+          nix_path=$(nix build --print-out-paths .#checks.x86_64-linux.muehml)
+          nix shell nixpkgs#attic-client --command attic push ci "$nix_path"
   larstop2:
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +32,9 @@ jobs:
         run: nix shell nixpkgs#attic-client --command attic use ci
       - name: Push to Attic
         run: |
-          nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.larstop2)
+          set -euo pipefail -o errtrace
+          nix_path=$(nix build --print-out-paths .#checks.x86_64-linux.larstop2)
+          nix shell nixpkgs#attic-client --command attic push ci "$nix_path"
   home-manager:
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +48,9 @@ jobs:
         run: nix shell nixpkgs#attic-client --command attic use ci
       - name: Push to Attic
         run: |
-          nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths .#checks.x86_64-linux.homeManager)
+          set -euo pipefail -o errtrace
+          nix_path=$(nix build --print-out-paths .#checks.x86_64-linux.homeManager)
+          nix shell nixpkgs#attic-client --command attic push ci "$nix_path"
   devenv:
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +64,9 @@ jobs:
         run: nix shell nixpkgs#attic-client --command attic use ci
       - name: Push to Attic
         run: |
-          nix shell nixpkgs#attic-client --command attic push ci $(nix build --print-out-paths --override-input devenv-root "file+file://"<(printf '%s' "$PWD") .#checks.x86_64-linux.devenv)
+          set -euo pipefail -o errtrace
+          nix_path=$(nix build --print-out-paths --override-input devenv-root "file+file://"<(printf '%s' "$PWD") .#checks.x86_64-linux.devenv)
+          nix shell nixpkgs#attic-client --command attic push ci "$nix_path"
   treefmt:
     runs-on: ubuntu-latest
     steps:
