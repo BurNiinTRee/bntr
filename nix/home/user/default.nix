@@ -35,7 +35,7 @@ in
     muehml.guiApps = lib.mkEnableOption "applications that don't run in a terminal";
   };
   config = {
-    fonts.fontconfig.enable = ifNi true;
+    fonts.fontconfig.enable = true;
 
     programs.gh.enable = true;
 
@@ -53,6 +53,7 @@ in
       [
         fd
         fira-code
+        maple-mono.variable
         lsof
         nil
         pijul

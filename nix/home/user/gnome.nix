@@ -17,7 +17,10 @@
           "us+engram"
         ])
       ];
-      xkb-options = [ "caps:escape" ];
+      xkb-options = [
+        "caps:escape"
+        "compose:sclk"
+      ];
     };
     "org/gnome/shell" = {
       favorite-apps = [
@@ -73,7 +76,7 @@
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
       clock-show-weekday = true;
-      monospace-font-name = "Fira Code 10";
+      monospace-font-name = "Maple Mono 10";
     };
     "org/gnome/desktop/background" = lib.mkIf config.muehml.nixosIntegration {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/glass-chip-l.jxl";
