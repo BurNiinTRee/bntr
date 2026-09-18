@@ -13,7 +13,9 @@
     servers = {
       create = {
         enable = true;
-        package = pkgs.neoforgeServers.neoforge-1_21_1-21_1_172;
+        package = pkgs.neoforgeServers.neoforge-1_21_1-21_1_172.override {
+          jre_headless = pkgs.jdk21_headless;
+        };
         jvmOpts = "-Xms6G -Xmx7G";
         serverProperties.server-port = 25566;
       };
