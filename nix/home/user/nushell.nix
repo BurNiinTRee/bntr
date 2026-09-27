@@ -47,26 +47,15 @@ in
               _ => $carapace_completer
           } | do $in $spans
       }
-      $env.config = {
-        keybindings: [],
-        show_banner: false,
-        completions: {
-          external: {
-            enable:  true
-            max_results: 100
-            completer: $external_completer
-          }
-        }
-        hooks: {
-          command_not_found: {
-            |cmd_name| (
-              try {
-                ${command-not-found} $cmd_name
-              }
-            )
-          }
+      $env.config.show_banner = false
+      $env.config.hooks.command_not_found = {|cmd_name|
+        try {
+          ${command-not-found} $cmd_name
         }
       }
+      $env.config.completions.external.enable = true
+      $env.config.completions.external.max_results = 100
+      $env.config.completions.external.completer = $external_completer
     '';
   };
 
