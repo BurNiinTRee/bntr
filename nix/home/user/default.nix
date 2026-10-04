@@ -65,7 +65,7 @@ in
         denaro
         distrobox
         intel-gpu-tools
-        libreoffice-fresh
+        libreoffice
         qpwgraph
       ];
 
