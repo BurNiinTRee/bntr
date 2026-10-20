@@ -23,7 +23,10 @@
         enable = true;
         package = pkgs.vanillaServers.vanilla-26_2;
         jvmOpts = "-Xms6G -Xmx7G";
-        serverProperties.server-port = 25568;
+        serverProperties = {
+          server-port = 25568;
+          spawn-protection = 0;
+        };
       };
       nelvira = {
         enable = true;
