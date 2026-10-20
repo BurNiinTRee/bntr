@@ -21,7 +21,7 @@
       };
       vanilla-istercraft = {
         enable = true;
-        package = pkgs.vanillaServers.vanilla-26_2;
+        package = pkgs.vanillaServers.vanilla-26_3;
         jvmOpts = "-Xms6G -Xmx7G";
         serverProperties.server-port = 25568;
       };
