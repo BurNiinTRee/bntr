@@ -48,7 +48,7 @@ in
   };
 
   services.nginx = {
-    enable = true;
+    enable = false;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
