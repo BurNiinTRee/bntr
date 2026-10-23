@@ -57,6 +57,7 @@
             root ${withSystem "x86_64-linux" ({ config, ... }: config.packages.decl-shadow-test-site)}
             @cachebuster query cachebust=*
             header @cachebuster Cache-Control max-age=31536000,immutable
+            encode
             file_server
           '';
         };
