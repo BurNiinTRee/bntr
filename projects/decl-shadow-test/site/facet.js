@@ -26,7 +26,7 @@ const facet = new function() {
     window.customElements.define(tagName, class FacetComponent extends extendsConstr {
       static observedAttributes = observeAttrs
       static formAssociated = formAssoc
-      #root = shadowMode !== 'none' ? this.attachShadow({ mode: shadowMode }) : this
+      #root = shadowMode !== 'none' ? this.shadowRoot ?? this.attachShadow({ mode: shadowMode }) : this
       #localFilters = {...localFilters}
 
       constructor() {
@@ -56,7 +56,7 @@ const facet = new function() {
       }
   
       connectedCallback() {
-        const content = template.content.cloneNode(true)
+        const content = this.#root.hasChildNodes() ? this.#root : template.content.cloneNode(true)
         const mixins = Object.values(facet.mixins).filter(m => m.applyGlobally || applyMixins.includes(m.name))
         for(let mixin of mixins) {
           content[mixin.attachPosition](mixin.template.content.cloneNode(true))
@@ -93,7 +93,9 @@ const facet = new function() {
         }
 
         if(formAssoc) this.value = this.getAttribute('value')
-        this.#root.append(content)
+        if (!this.#root.hasChildNodes()) {
+          this.#root.append(content)
+        }
         this.#event('connect')
       }
   

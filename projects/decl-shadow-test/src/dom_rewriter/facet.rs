@@ -82,17 +82,17 @@ pub(crate) fn find_components_definitions(
                 .find(|&attr| &attr.name.local == "component")
                 && let Some(contents) = template_contents.borrow().clone()
             {
-                let clean_contents = remove_script_elements(contents.clone());
+                neuter_script_elements(&contents);
                 let component_name = component_attr.value.clone();
                 let shadowroot_mode = attrs
                     .borrow()
                     .iter()
                     .find(|&attr| &attr.name.local == "shadow")
                     .map(|attr| attr.value.clone())
-                    .unwrap_or_else(|| "closed".parse().unwrap());
+                    .unwrap_or_else(|| "open".parse().unwrap());
                 definitions
                     .entry(component_name)
-                    .or_insert((shadowroot_mode.clone(), clean_contents));
+                    .or_insert((shadowroot_mode.clone(), contents));
             } else if let Some(_) = attrs
                 .borrow()
                 .iter()
@@ -103,8 +103,8 @@ pub(crate) fn find_components_definitions(
                     .find(|&attr| &attr.name.local == "global")
                 && let Some(contents) = template_contents.borrow().clone()
             {
-                let clean_contents = remove_script_elements(Rc::clone(&contents));
-                global_mixins.push(clean_contents)
+                neuter_script_elements(&contents);
+                global_mixins.push(contents)
             }
         }
         _ => {
@@ -139,51 +139,16 @@ pub(crate) fn find_components_uses(
     };
 }
 
-pub(crate) fn remove_script_elements(node: Rc<Node>) -> Rc<Node> {
-    let out = Node::new(match &node.data {
-        NodeData::Element {
-            name,
-            attrs,
-            template_contents,
-            mathml_annotation_xml_integration_point,
-        } => NodeData::Element {
-            name: name.clone(),
-            attrs: attrs.clone(),
-            template_contents: template_contents.clone(),
-            mathml_annotation_xml_integration_point: *mathml_annotation_xml_integration_point,
-        },
-        NodeData::Document => NodeData::Document,
-        NodeData::Doctype {
-            name,
-            public_id,
-            system_id,
-        } => NodeData::Doctype {
-            name: name.clone(),
-            public_id: public_id.clone(),
-            system_id: system_id.clone(),
-        },
-        NodeData::Text { contents } => NodeData::Text {
-            contents: contents.clone(),
-        },
-        NodeData::Comment { contents } => NodeData::Comment {
-            contents: contents.clone(),
-        },
-        NodeData::ProcessingInstruction { target, contents } => NodeData::ProcessingInstruction {
-            target: target.clone(),
-            contents: contents.clone(),
-        },
-    });
-
+pub(crate) fn neuter_script_elements(node: &Node) {
     for child in node.children.borrow().deref() {
         match &child.data {
-            NodeData::Element { name, .. } if name.local == local_name!("script") => {}
-            _ => {
-                out.children
-                    .borrow_mut()
-                    .push(remove_script_elements(child.clone()));
+            NodeData::Element { name, attrs, .. } if name.local == local_name!("script") => {
+                attrs.borrow_mut().push(Attribute {
+                    name: QualName::new(None, ns!(), local_name!("type")),
+                    value: "application/facethandler".into(),
+                })
             }
-        };
+            _ => neuter_script_elements(child),
+        }
     }
-
-    out
 }
