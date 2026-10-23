@@ -173,16 +173,10 @@ const facet = new function() {
     namespace: document.currentScript?.hasAttribute?.('namespace')
       ? document.currentScript.getAttribute('namespace') || 'facet-' : '',
 
-    /** If true, automatically calls `facet.discoverDeclarativeComponents` on script load.
-     *  (default: true, declarative: false if `libonly` attribute present on importing script) */
-    autoDiscover: document.currentScript && !document.currentScript.hasAttribute('libonly'),
-
     /** Default shadow root mode for declaratively defined components.
      *  (default: 'closed', declarative: value of `shadow` attribute on importing script) */
     defaultShadowMode: document.currentScript?.getAttribute('shadow') ?? 'closed'
   }
-
-  // Automatically discover Facet templates on load
-  ;(fn => document.readyState === 'interactive' ? fn() : document.addEventListener('DOMContentLoaded', fn, {once:true}))
-   (() => this.config.autoDiscover && this.discoverDeclarativeComponents(document))
 }
+
+export default facet;
