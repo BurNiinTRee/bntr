@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       imports = [ config.flake.modules.devenv.rust ];
-      processes.site-watch.exec = ''${pkgs.nushell}/bin/nu -c "watch ./site { cargo r --release -- build }"'';
+      processes.site-watch.exec = ''${pkgs.nushell}/bin/nu -c "watch ./site | each { cargo r --release -- build }"'';
       services.caddy = {
         enable = true;
         virtualHosts.":8080".extraConfig = ''
