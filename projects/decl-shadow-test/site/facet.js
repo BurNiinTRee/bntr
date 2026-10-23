@@ -2,6 +2,7 @@
 
 /** Facet Javascript API */
 const facet = new function() {
+  const facet = this;
   this.version = '0.1.2a'
 
   /**

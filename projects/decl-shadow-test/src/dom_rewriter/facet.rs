@@ -56,9 +56,12 @@ fn fill_usages(
                 mathml_annotation_xml_integration_point: false,
             });
             for mixin in global_mixins {
-                decl_shadow_dom.children.borrow_mut().push(mixin.clone());
+                decl_shadow_dom
+                    .children
+                    .borrow_mut()
+                    .insert(0, mixin.clone());
             }
-            usage.children.borrow_mut().push(decl_shadow_dom);
+            usage.children.borrow_mut().insert(0, decl_shadow_dom);
         }
     }
 }
@@ -101,6 +104,10 @@ pub(crate) fn find_components_definitions(
                     .borrow()
                     .iter()
                     .find(|&attr| &attr.name.local == "global")
+                && let Some(_) = attrs
+                    .borrow()
+                    .iter()
+                    .find(|&attr| &attr.name.local == "prepend")
                 && let Some(contents) = template_contents.borrow().clone()
             {
                 neuter_script_elements(&contents);
