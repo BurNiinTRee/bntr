@@ -4,7 +4,14 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/icons/scalable.svg">
-<script async src="/facet.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "facet": "/facet.js"
+    }
+  }
+</script>
+<script type="module">import "facet";</script>
 <template mixin="style" prepend global>
   <link rel=stylesheet href="/style.css">
 </template>
@@ -38,3 +45,9 @@
 <template component="my-tabs">
 <slot></slot>
 </template>
+
+<script async type="module">
+  import facet from "facet";
+  facet.discoverDeclarativeComponents(document);
+  console.log("discovered facets");
+</script>
