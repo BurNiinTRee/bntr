@@ -131,6 +131,11 @@
           file_server
         '';
       };
+      "forward.muehml.eu" = {
+        extraConfig = ''
+          reverse_proxy localhost:5000          
+        '';
+      };
     };
   };
 
