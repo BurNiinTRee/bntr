@@ -49,6 +49,7 @@ in
 
   services.nginx = {
     enable = true;
+    package = pkgs.nginxMainline;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedTlsSettings = true;
